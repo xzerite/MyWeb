@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="x-poe-datastore-behavior" content="local_only">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+  <meta http-equiv="x-dns-prefetch-control" content="off">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+  <meta charset="utf-8">
+  <title>HasnaAccount</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script>
+  <meta name="x-poe-allow-downloads" content="true">
+  <meta name="x-poe-datastore-behavior" content="disabled">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script>
+  <script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script>
+  <script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script>
+  <script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script>
+  <script>Object.defineProperty(exports, "__esModule", { value: true }); function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; } var _react = require('react');
+    var _framermotion = require('framer-motion');
+
+
+
+
+
+    var _lucidereact = require('lucide-react');
+
+    const SNOW_PARTICLES = Array.from({ length: 150 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      size: 4 + Math.random() * 8,
+      duration: 3 + Math.random() * 5,
+      delay: Math.random() * 10,
+      color: i % 2 === 0 ? "#ffffff" : "#f472b6", // Bright White and Pink
+      opacity: 0.6 + Math.random() * 0.4 // Very solid and clear
+    }));
+
+    const BOW_PARTICLES = Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 500}%`, // Spread across the scrollable height
+      size: 15 + Math.random() * 20,
+      rotation: Math.random() * 360,
+      duration: 10 + Math.random() * 15,
+      delay: Math.random() * 5
+    }));
+
+    const SKILLS = [
+      {
+        title: "Offensive Security",
+        Icon: _lucidereact.Zap,
+        items: ["Ethical Hacking", "Penetration Testing", "Red Teaming", "Web Application Security", "Cyber Threat Hunting (CTH)", "Social Engineering Tools"],
+      },
+      {
+        title: "Defensive Security",
+        Icon: _lucidereact.ShieldCheck,
+        items: ["Incident Response", "Digital Forensics", "SOC Operations", "Threat Modeling", "OS Hardening", "Infrastructure Security"],
+      },
+      {
+        title: "Information Technology (IT)",
+        Icon: _lucidereact.Settings,
+        items: ["Hardware Development", "Systems Design & Analysis", "Cloud Security Fundamentals", "Identity & Access Management (IAM)", "Virtualization & Lab Environments"],
+      },
+      {
+        title: "CS Fundamentals",
+        Icon: _lucidereact.Book,
+        items: ["SDLC", "Website Architecture", "App Development", "Computer Terminology", "Data Logic", "System Workflows"],
+      },
+      {
+        title: "AI & Machine Learning",
+        Icon: _lucidereact.Cpu,
+        items: ["Artificial Intelligence", "Machine Learning", "Offensive AI", "Predictive Analytics", "Offensive AI Research"],
+      },
+      {
+        title: "Development & Design",
+        Icon: _lucidereact.Layout,
+        items: ["UI / UX Design", "Game Design (Unity)", "Web & App Building", "Software Development", "Software Engineering"],
+      },
+      {
+        title: "Programming Languages",
+        Icon: _lucidereact.Code,
+        items: ["Python", "JavaScript", "C / C++", "SQL", "MySQL", "Anaconda", "Bash Scripting", "HTML & CSS"],
+      },
+      {
+        title: "Professional & Leadership",
+        Icon: _lucidereact.Users,
+        items: ["Strategic Leadership", "Project Management", "Risk Management (NIST)", "Technical Documentation", "Professional Communication", "Team Collaboration"],
+      },
+    ];
+
+    const PROJECTS = [
+      {
+        id: 1,
+        title: "Radar-Based Object Detection System",
+        date: "Jan 2026",
+        association: "Gulf Colleges",
+        description: "Design and implementation of a radar-based system using ultrasonic technology for real-time object detection and graphical visualization.",
+        technologies: {
+          hardware: ["Arduino Uno", "Ultrasonic Sensor (HC-SR04)", "Breadboard"],
+          software: ["Processing (Visualization)", "Tinkercad Circuits"]
+        },
+        skills: ["Embedded Systems", "Hardware Integration", "Arduino Programming"],
+        supervisor: "Dr. Faten",
+        image: "1767814168981.jpg"
+      },
+      {
+        id: 2,
+        title: "Student Registration Website – CyberGuard Club",
+        date: "Jan 2026",
+        association: "Cyber Guard Club",
+        description: "Secure, professional registration platform for the CyberGuard Club, featuring structured forms for analytics and community support.",
+        technologies: {
+          software: ["Frontend Development", "UI/UX Design", "Web Security"]
+        },
+        skills: ["Website Building", "Business Analysis", "System Design"],
+        link: "#",
+        image: "1767456995415.jpg"
+      },
+      {
+        id: 3,
+        title: "NEXUS CTF Platform",
+        date: "Jan 2026",
+        association: "Gulf Colleges",
+        description: "Cyberpunk-inspired CTF platform with 15 challenges across Web Sec, Crypto, and Forensics. Features rank tracking (ROOKIE → ELITE).",
+        technologies: {
+          software: ["JavaScript", "HTML/CSS", "Cybersecurity Concepts"]
+        },
+        skills: ["CTF Challenges", "UX/UI Design", "SDLC"],
+        image: "Screenshot 2026-01-04 105711.png"
+      },
+      {
+        id: 4,
+        title: "Intrusion Detection (IDPS) Lab",
+        date: "Jan 2026",
+        association: "Gulf Colleges",
+        description: "Advanced lab simulations for NIDPS/HIDPS using Kali Linux, featuring ML-based anomaly detection and real-time threat response.",
+        technologies: {
+          software: ["Kali Linux", "Anaconda", "Cisco Packet Tracer"]
+        },
+        skills: ["Incident Response", "Network Security", "CTH"],
+        image: "1771883134548-71ae41a4-74bc-44e0-9e6d-bea76b3606bb.jpg"
+      },
+      {
+        id: 5,
+        title: "Home Budget Tracker App",
+        date: "Jan 2026",
+        description: "Cross-platform mobile app for financial management with interactive pie charts and real-time budget monitoring.",
+        technologies: {
+          software: ["Flutter", "Android Studio", "Visual Basic"]
+        },
+        skills: ["Mobile Development", "Software Engineering", "SDLC"],
+        image: "1767736981658.jpg"
+      },
+      {
+        id: 6,
+        title: "Password Security Dashboard",
+        date: "Feb 2026",
+        association: "Gulf Colleges",
+        description: "Real-time dashboard for password hygiene, including a strength analyzer, customizable generator, and SOC simulation.",
+        technologies: {
+          software: ["JavaScript (Real-time)", "Glassmorphism UI", "SOC Concepts"]
+        },
+        skills: ["Web App Security", "Security Visualization", "UI/UX"],
+        image: "1770475596812.jpg"
+      },
+      {
+        id: 7,
+        title: "Multimedia Web Application",
+        date: "Feb 2026",
+        association: "Gulf Colleges",
+        description: "Dynamic full-stack web application developed for a Multimedia course, utilizing server-side data management.",
+        technologies: {
+          software: ["PHP", "XAMPP Server", "HTML/CSS/JS"]
+        },
+        skills: ["Full-Stack Development", "Graphic Design", "SDLC"],
+        image: "Screenshot 2026-02-06 220016.png"
+      },
+      {
+        id: 8,
+        title: "NeuroPlay AI Gaming System",
+        date: "Sep - Nov 2025",
+        association: "Gulf Colleges",
+        description: "Emotion-adaptive gaming system using OpenCV and DeepFace to analyze player focus and stress for real-time difficulty adjustment.",
+        technologies: {
+          software: ["Python", "OpenCV", "DeepFace AI", "Computer Vision"]
+        },
+        skills: ["Software Engineering", "AI Integration", "UML Modeling"],
+        image: "1763109988905.jpg"
+      },
+      {
+        id: 9,
+        title: "Interactive Cybersecurity Game",
+        date: "Nov 2025",
+        association: "Gulf Colleges",
+        description: "Educational game with specialized stages for server troubleshooting, phishing detection, and cryptographic challenges.",
+        technologies: {
+          software: ["Unity", "Game Logic", "Cybersecurity Education"]
+        },
+        skills: ["Game Development", "Incident Response", "Problem Solving"],
+        image: "1763723446848.jpg"
+      },
+      {
+        id: 10,
+        title: "VisionPlus – AI Smart Glasses",
+        date: "Nov 2025",
+        association: "Gulf Colleges",
+        description: "Autonomous wearable AI using LiDAR and Computer Vision to assist visually impaired users with object and obstacle detection.",
+        technologies: {
+          hardware: ["ESP32", "ESP32-CAM", "Remote Button Board", "LiDAR", "Ultrasonic Sensors"],
+          software: ["YOLO (Model Training)", "Kaggle (Dataset)", "Anaconda (Spyder & VS Code)", "Python", "OpenCV", "Text-to-Speech"]
+        },
+        skills: ["Artificial Intelligence", "Edge AI", "Hardware Engineering"],
+        image: "1762807805479.jpg"
+      }
+    ];
+
+    const RECOMMENDATIONS = [
+      {
+        id: 1,
+        name: "د. رانيا الشيخ (Dr. Rania Al-Sheikh)",
+        role: "Business and System Analyst | Assistant Professor in Cybersecurity",
+        date: "Feb 16, 2026",
+        relationship: "Was Hasna's teacher at Gulf Colleges",
+        content: "It gives me great pleasure to offer this solid recommendation for the outstanding student Hasna, who has been enrolled in my classes since August 19, 2023, during my tenure as an Assistant Professor in the Cybersecurity Department at Gulf Colleges. Hasna has established herself as one of the most unusual students during this time by perfectly fusing outstanding technical proficiency in cybersecurity, a strong sense of ethics, and the ability to contextualize security concerns within cultural and social frameworks. This rare combination has made her a potential security expert who is able to address changing cyber threats with depth and knowledge. Throughout all the courses I have taught, Hasna has consistently shown exceptional academic performance. To promote community cybersecurity awareness that extends beyond the classroom, she has participated in university cultural activities. During Cyber Security Week, she planned a workshop called Cybersecurity and Digital Identity, in which she carefully linked the tenets of privacy protection with Saudi cultural ideals. I can wholeheartedly suggest her for any higher education program (Master's/PhD in Cybersecurity) or professional position in a government or commercial security organization. Investing in Hasna means investing in a new generation of Saudi cybersecurity experts, who will protect the digital environment with a blend of technical expertise, cultural knowledge, and moral accountability."
+      },
+      {
+        id: 2,
+        name: "Hael Al-bashiri",
+        role: "Assistant Professor in Computer Science (Recommender Systems, AI, Data Science)",
+        date: "Feb 13, 2026",
+        relationship: "Was Hasna's teacher",
+        content: "I am pleased to recommend Hasna Al-Shammari for postgraduate studies or professional opportunities in the field of cybersecurity. She has consistently demonstrated dedication, strong analytical thinking, and a genuine passion for expanding her knowledge in this field. Throughout her academic journey, Hasna has shown the ability to apply theoretical concepts to practical situations with confidence and precision. She approaches challenges with determination, maintains high professional standards, and works effectively both independently and within a team environment. I am confident that her commitment, integrity, and continuous drive for excellence will enable her to succeed in any academic or professional path she pursues. I strongly support her application and wish her continued success in her future endeavors."
+      },
+      {
+        id: 3,
+        name: "Dr. Shaimaa Mahmoud",
+        role: "Assistant Professor, Department of Computer Science and Information Systems",
+        date: "Jan 21, 2026",
+        relationship: "Managed Hasna directly",
+        content: "It is a great pleasure to write this letter of recommendation in support of Hasna Al-Shammari as she pursues postgraduate studies and/or professional opportunities in the field of cybersecurity. During her academic journey in the Department of Information Technology at Gulf Colleges, I had the opportunity to teach Hasna and closely follow her academic and professional growth. Throughout this period, she consistently distinguished herself as an exceptional student, demonstrating a high level of diligence, discipline, and dedication to her studies. Hasna possesses a strong command of scientific and technical concepts, coupled with an outstanding ability to apply theoretical knowledge in practical contexts. She consistently showed initiative, worked effectively both independently and as part of a team, and maintained a continuous drive toward excellence. In addition, she has demonstrated a genuine research-oriented mindset and a sincere interest in advancing knowledge within the cybersecurity domain. She actively participated in academic and professional activities related to her field, where she proved herself to be a motivated, responsible, and impactful contributor. Her enthusiasm for learning and her professional attitude clearly set her apart from her peers. I am confident that Hasna will be a valuable asset to any academic institution or professional organization she joins. I strongly recommend her for admission, scholarships, or professional opportunities, and I believe she will continue to excel and make meaningful contributions to her field."
+      },
+      {
+        id: 4,
+        name: "Ahmed AlZahrani",
+        role: "Lead OT Cyber Security Engineer (ICS) at SABIC",
+        date: "Sep 6, 2025",
+        relationship: "Was Hasna's teacher",
+        content: "I had the pleasure of supervising Hassna during her COOP training period. She consistently showed professionalism, eagerness to learn, and the ability to take initiative in her tasks. Hassna quickly adapted to the workflow and contributed valuable support to the team. I believe she will be an asset to any organization she joins and I highly recommend her."
+      },
+      {
+        id: 5,
+        name: "Dr. Baha Eldin Hamouda",
+        role: "Assistant Professor | Head of Information Technology Department",
+        date: "Aug 25, 2025",
+        relationship: "Was Hasna's teacher at Gulf Colleges",
+        content: "It is my pleasure to write this recommendation for Hasna Al-Shammari to pursue her postgraduate studies or any professional opportunity in the field of cybersecurity. During her studies in the Department of Information Technology at Gulf Colleges, I had the privilege of closely observing her academic and professional development. She is an outstanding and distinguished student who has consistently demonstrated diligence, discipline, and commitment throughout her studies. Hasna has shown a strong mastery of scientific concepts with an exceptional ability to apply them in practice, along with initiative, teamwork, and a continuous pursuit of excellence. She also possesses a genuine research spirit and a sincere desire to advance knowledge in the field of cybersecurity. She has actively contributed to academic and professional activities related to her field, proving herself to be an impactful and valuable member. I am confident that she will be a valuable asset to any academic or professional institution she joins, and I strongly recommend her for admission and support in her educational and professional journey."
+      },
+      {
+        id: 6,
+        name: "Dalal AL-Alimi",
+        role: "Assistant Professor at University of Tabuk",
+        date: "Aug 15, 2025",
+        relationship: "Was Hasna's teacher",
+        content: "I have had the pleasure of teaching Hasna AL-Shammari in multiple courses, and from the very beginning, she stood out, not just for her excellent grades, but for her curiosity, energy, and drive to go beyond what’s expected. She has built a stellar reputation at the university as someone who is smart, active, and always ready to take on new challenges. Hasna doesn’t just “learn”, she dives into new ideas with enthusiasm, asks thoughtful questions, and applies what she learns with precision and creativity. Her work ethic and positive spirit make her a joy to teach and collaborate with. I am confident that she has a bright future ahead and will be an asset to any organization she joins. I wholeheartedly recommend her for any professional opportunity as well as for higher education pursuits."
+      },
+      {
+        id: 7,
+        name: "Hosamaldeen Hamd",
+        role: "Assistant Professor",
+        date: "Aug 11, 2025",
+        relationship: "Was Hasna's teacher",
+        content: "I am pleased to recommend Hasnaa for her exceptional dedication and passion in the field of cybersecurity. Throughout my experience working with her, she has consistently demonstrated remarkable perseverance and an eagerness to explore every aspect of the field. Her commitment to learning, coupled with her continuous drive to achieve excellence, makes her stand out as a promising talent in cybersecurity. I truly appreciate her determination, curiosity, and willingness to go the extra mile to improve her skills. I am confident that Hasnaa will continue to grow and make valuable contributions in her cybersecurity journey."
+      },
+      {
+        id: 8,
+        name: "Dr. Faten A. Saif",
+        role: "Assistant Professor | Expert in Parallel & Distributed Computing",
+        date: "Aug 10, 2025",
+        relationship: "Was Hasna's teacher",
+        content: "I had the privilege of teaching Hasan Alshammari, one of the most outstanding and dedicated students I have ever worked with. Throughout her academic journey, she consistently demonstrated exceptional commitment, professionalism, and a genuine passion for cybersecurity. Her diligence and enthusiasm were evident in her punctual attendance, active participation in lectures, and eagerness to explore and understand new concepts. Hasan possesses an impressive ability to quickly grasp complex technical topics and apply them effectively in both coursework and practical projects. She actively contributed to class discussions, collaborated seamlessly on group assignments, and participated enthusiastically in cybersecurity workshops. Her drive for continuous learning extended beyond the classroom, as she sought hands-on experiences and engaged in extracurricular activities relevant to her field. In addition to her technical skills, Hasan stands out for her integrity, teamwork, and positive attitude. She approaches challenges with determination, adapts quickly to new situations, and inspires those around her through her dedication and collaborative spirit. I have no doubt that Hasan has the potential to excel in any professional or academic environment she chooses."
+      }
+    ];
+
+    const VOLUNTEERING = [
+      {
+        id: 1,
+        role: "Member of volunteer",
+        organization: "المركز الوطني لتنمية القطاع غير الربحي | National Center for Non-Profit Sector",
+        period: "Jan 2024",
+        category: "Social Services",
+        description: "Participated in a volunteer initiative focused on distributing winter kits to individuals in need, contributing to community support efforts during the winter season. The activity involved organizing, preparing, and delivering essential supplies to help ensure warmth and well-being.",
+        title: "Winter Kits Distribution",
+        image: "1766620951540.jpg"
+      },
+      {
+        id: 2,
+        role: "Member of volunteers",
+        organization: "Tarawuf — Orphans Care Association (Hafar Al-Batin)",
+        period: "Feb 2024",
+        category: "Children",
+        description: "Volunteered with the Orphans Care Association (Tarawuf) in Hafar Al-Batin, contributing to community support activities aimed at serving orphans. Assisted in organizing and supporting charitable initiatives while promoting social responsibility and community engagement.",
+        title: "Volunteer Support – Orphans Care Association",
+        image: "1766621140666 (1).jpg"
+      },
+      {
+        id: 3,
+        role: "Photography Specialist",
+        organization: "National Center for Non-Profit Sector",
+        period: "Feb 2024",
+        category: "Arts and Culture",
+        description: "Volunteered in photographing and documenting Founding Day activities, contributing to event coverage through visual content. Captured key moments and supported media documentation efforts to reflect the cultural significance of the occasion.",
+        title: "Founding Day Event Coverage (Photography)",
+        image: "1766621504202.jpg"
+      },
+      {
+        id: 4,
+        role: "Member",
+        organization: "Saudi Vision 2030 Support Initiatives",
+        period: "Dec 2025",
+        category: "Social Services",
+        description: "Recognized for contributing to volunteer activities in support of Saudi Vision 2030 objectives. Completed a total of 12 volunteer hours through participation with two volunteer organizations, supporting community initiatives and social development efforts.",
+        title: "Volunteer Participation Certificate",
+        image: "1766621634420.jpg"
+      },
+      {
+        id: 5,
+        role: "Freelance Photographer",
+        organization: "National Center for Non-Profit Sector",
+        period: "Jun 2024",
+        category: "Health",
+        description: "Volunteered in photographing and documenting a blood donation campaign, supporting awareness efforts through visual content. Contributed to media coverage by capturing key moments and assisting in documenting the campaign’s impact on community health.",
+        title: "Blood Donation Campaign Coverage (Photography)",
+        image: "1766621862499.jpg"
+      }
+    ];
+
+    const CERTIFICATIONS = [
+      {
+        id: "cert-ai-agent",
+        title: "Offensive Agent AI Course",
+        organization: "Red Team Leaders",
+        date: "Dec 2025",
+        desc: "Specialized training in AI Agents design, implementation, and offensive AI strategies. Skills: Red Team, AI Agents, Prompt Engineering, LLMs.",
+        icon: "Bot",
+        image: "1766449036489.jpg"
+      },
+      {
+        id: "cert-net-sim",
+        title: "Network Attack Simulation – Certificate of Attendance",
+        organization: "Cyber Guard Club",
+        date: "Issued Dec 2025",
+        desc: "Hands-on workshop focused on simulating and analyzing network attacks (MITM, DHCP/DNS/ARP attacks) and incident management.",
+        icon: "ShieldAlert",
+        image: "1765817299527.jpg"
+      },
+      {
+        id: "cert-cpp",
+        title: "C++ programming language",
+        organization: "Ministry of Communications and Information Technology of Saudi Arabia",
+        date: "Issued Dec 2025",
+        desc: "Comprehensive course building a strong foundation in C++, OOP, and problem-solving. Credential ID: 130311853.",
+        icon: "Code2",
+        image: "1765607200370.jpg"
+      },
+      {
+        id: "cert-ml-sup",
+        title: "Supervised Machine Learning: Regression and Classification",
+        organization: "Stanford Online",
+        date: "Issued Dec 2025",
+        desc: "Foundations of ML including linear/logistic regression, classification, and neural network basics. Credential ID: X43PU7426DKQ.",
+        icon: "BrainCircuit",
+        image: "1765143245876.jpg"
+      },
+      {
+        id: "cert-db-fund",
+        title: "Databricks Fundamentals Accreditation",
+        organization: "Databricks",
+        date: "Issued Sep 2025",
+        desc: "Accreditation in data engineering and AI fundamentals within the Databricks ecosystem.",
+        icon: "Database",
+        image: "1758319919933.jpg"
+      },
+      {
+        id: "cert-bugbounty",
+        title: "BugBounty Workshop",
+        organization: "GREEN ARMOR",
+        date: "Issued Sep 2025",
+        desc: "In-depth workshop on vulnerability assessment, web application security, and ethical hacking techniques.",
+        icon: "Bug",
+        image: "1757874500239 (1).jpg"
+      },
+      {
+        id: "cert-rust",
+        title: "Rust Programming",
+        organization: "GREEN ARMOR",
+        date: "Issued Sep 2025",
+        desc: "Focused on secure coding, reliable software development, and memory-safe high-performance code.",
+        icon: "Terminal",
+        image: "1757874797846.jpg"
+      },
+      {
+        id: "cert-ai-princ",
+        title: "Fundamentals Of Artificial Intelligence",
+        organization: "SDAIA | سدايا",
+        date: "Issued Sep 2025",
+        desc: "Part of the 'Million Saudis in AI' initiative. Covered AI Principles and foundational concepts.",
+        icon: "Cpu",
+        image: "1757605508206.jpg"
+      },
+      {
+        id: "cert-ai-app",
+        title: "AI Concepts and Advanced Applications",
+        organization: "SDAIA | سدايا",
+        date: "Issued Sep 2025",
+        desc: "Advanced applications of Generative AI, ethics, and productivity tools. Skills: Artificial Intelligence (AI), Web Design, Computer terminology.",
+        icon: "Cpu",
+        image: "1757603894422.jpg"
+      },
+      {
+        id: "cert-ibm-ai",
+        title: "Artificial Intelligence Fundamentals",
+        organization: "IBM",
+        date: "Issued May 2025",
+        desc: "Foundational concepts of AI, including its history, applications, and ethical considerations. Skills: Artificial Intelligence (AI).",
+        icon: "Cpu",
+        image: "1748541580158.jpg"
+      },
+      {
+        id: "cert-linkedin-cyber",
+        title: "Cybersecurity Foundations",
+        organization: "LinkedIn",
+        date: "Issued Dec 2025",
+        desc: "Core concepts of cybersecurity, including tools, incident management, auditing, and secure coding. Skills: Cybersecurity Tools, Incident Management, Auditing, Secure Coding, SIEM/IDS/IPS.",
+        icon: "Shield",
+        image: "1764797118691.jpg"
+      },
+      {
+        id: "cert-jr-pentest",
+        title: "Jr Penetration Tester Certificate",
+        organization: "TryHackMe",
+        date: "Issued Aug 2025 · Expires Aug 2028",
+        desc: "Fundamental penetration testing skills, including network security, web hacking, and privilege escalation. Credential ID: THM-CPTYMM8KII.",
+        icon: "ShieldAlert",
+        image: "1756064454033.jpg"
+      },
+      {
+        id: "cert-iso-auditor",
+        title: "ISO/IEC 27001:2022 Lead Auditor Certified",
+        organization: "Mastermind",
+        date: "Issued Aug 2025 · Expires Aug 2028",
+        desc: "Professional certification for auditing Information Security Management Systems (ISMS). Credential ID: 0ltngi2vee.",
+        icon: "ShieldAlert",
+        image: "1755863190227.jpg"
+      },
+      {
+        id: "cert-pre-sec",
+        title: "Pre Security",
+        organization: "TryHackMe",
+        date: "Issued Aug 2025",
+        desc: "Foundational cybersecurity knowledge covering networking, web security, and Linux basics. Credential ID: THM-QQWPYJTPVU.",
+        icon: "ShieldAlert",
+        image: "1755772299348.jpg"
+      },
+      {
+        id: "cert-azure-entra",
+        title: "Microsoft Azure Administrator: Managing Microsoft Entra ID",
+        organization: "Skillsoft",
+        date: "Aug 2025",
+        desc: "Microsoft Azure Administrator course focusing on identity and access management within Microsoft Entra ID (formerly Azure Active Directory), RBAC, and governance.",
+        icon: "Cloud",
+        image: "Screenshot 2026-02-24 062739.png"
+      },
+      {
+        id: "cert-capm-tailor",
+        title: "CAPM®: Project Tailoring – PMI PDU",
+        organization: "Skillsoft (PMI)",
+        date: "Aug 2025",
+        desc: "Specialized course on customizing project plans, scopes, and resources to align with objectives while adapting to dynamic environments.",
+        icon: "GanttChart",
+        image: "Screenshot 2026-02-24 062859.png"
+      },
+      {
+        id: "cert-cisco-net",
+        title: "Networking Basics",
+        organization: "Cisco",
+        date: "2025",
+        desc: "Foundational knowledge in network architecture, security, and infrastructure. Skills: Network Security · Network.",
+        icon: "Network",
+        image: "1749825631524.jpg"
+      },
+      {
+        id: "cert-oracle-cloud",
+        title: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate P1",
+        organization: "Oracle",
+        date: "2025",
+        desc: "Key concepts of OCI, including cloud compute, storage, and networking services.",
+        icon: "Cloud",
+        image: "1749386118244.jpg"
+      },
+      {
+        id: "cert-netapp-lab",
+        title: "Build your own NetApp Storage Lab",
+        organization: "EC-Council",
+        date: "Issued Jun 2025",
+        desc: "Fundamentals of building and managing NetApp storage environments. Skills: Build NetApp. Credential ID: 415410.",
+        icon: "HardDrive"
+      },
+      {
+        id: "cert-ccsc",
+        title: "Cybersecurity Career Starter Certification (CCSC)",
+        organization: "Red Team Leaders",
+        date: "Dec 2025",
+        desc: "Foundational cybersecurity certification covering career paths, essential tools, and industry core concepts.",
+        icon: "Shield",
+        image: "1766633293359.jpg"
+      },
+      {
+        id: "cert-ibm-ai",
+        title: "AI Fundamentals",
+        organization: "IBM",
+        date: "May 2025",
+        desc: "Core concepts of Artificial Intelligence, including history, types, and real-world applications.",
+        icon: "Bot"
+      },
+      {
+        id: "cert-aws-hub",
+        title: "Getting Started with AWS Security Hub",
+        organization: "Simplilearn",
+        date: "Issued Feb 2026",
+        desc: "Focused on AWS Security Hub basics, security standards, and automated security checks. Skills: Ethical Hacking · Cyber Threat Hunting (CTH) · Cyber Threat Intelligence (CTI) · Cybersecurity Tools.",
+        icon: "Shield",
+        image: "Screenshot 2026-02-24 064153.png"
+      },
+      {
+        id: "cert-gulf-ai-intro",
+        title: "Artificial Intelligence Introduction Certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "Issued Mar 2023",
+        desc: "Introduction to AI fundamentals, including structural basics, software usage, and mechanisms in artificial intelligence.",
+        icon: "Cpu",
+        image: "1749759257788.jpg"
+      },
+      {
+        id: "award-sabic",
+        title: "SABIC Certification",
+        organization: "SABIC",
+        date: "Issued Sep 2025",
+        desc: "I am proud to have received a Cooperative training program completion certificate from SABIC, recognizing my efforts and contributions during the training program. This certificate reflects the knowledge and skills I gained and the valuable experience of working with a leading company in the petrochemical industry.",
+        icon: "Verified",
+        image: "1757149348501.jpg"
+      },
+      {
+        id: "award-gulf-appreciation",
+        title: "Gulf colleges Certification",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "Issued May 2025",
+        desc: "Certificate of Participation in the International Scientific Forum of Gulf Colleges 2025, awarded by Gulf Colleges.",
+        icon: "Star",
+        image: "1760897017874.jpg"
+      },
+      {
+        id: "award-gulf-participation-dec",
+        title: "Certificate of Participation",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "Issued Dec 2025",
+        desc: "Certificate of Appreciation awarded by Gulf Colleges in recognition of active participation in the Gulf Colleges. Skills: Communication · Computer terminology · Secure Coding · Team Collaboration · Web Design.",
+        icon: "UserCheck",
+        image: "1766995491526.jpg"
+      },
+      {
+        id: "award-gulf-talent",
+        title: "Gulf colleges certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "Awarded by the Talent and Creativity Club at Gulf Colleges.",
+        icon: "Sparkles",
+        image: "1749385552291.jpg"
+      },
+      {
+        id: "award-gulf-employment",
+        title: "Gulf colleges certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "Participation in the Employment and Training Forum at Gulf Colleges.",
+        icon: "GraduationCap",
+        image: "1749385331248.jpg"
+      },
+      {
+        id: "award-gulf-activities",
+        title: "Gulf colleges certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "Recognition of multiple participations in student activities at Gulf Colleges.",
+        icon: "Users",
+        image: "1749385473084.jpg"
+      },
+      {
+        id: "award-gulf-spl",
+        title: "Gulf colleges certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "SPL Program for Career Guidance and Counseling at Gulf Colleges.",
+        icon: "Briefcase",
+        image: "1749385402744.jpg"
+      },
+      {
+        id: "award-gulf-leadership",
+        title: "Gulf college certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "Self-Leadership Enhancement Course at Gulf Colleges.",
+        icon: "User",
+        image: "1749385286646.jpg"
+      },
+      {
+        id: "award-gulf-english",
+        title: "Gulf colleges certificate",
+        organization: "كليات الخليج | Gulf Colleges",
+        date: "2025",
+        desc: "Importance of English Course at Gulf Colleges.",
+        icon: "BookOpen",
+        image: "1749385441756.jpg"
+      }
+    ];
+
+    const SABIC_COURSES = [
+      "Anti-Corruption", "Anti-Dumping", "Avoiding Improper Agreements",
+      "Business Gifts and Hospitality", "Careful communications", "Competitive Intelligence",
+      "Compliance Investigation", "Conflicts of interest", "Controllership",
+      "Copyrights", "Customer and supplier personal data protection",
+      "Customer, Distributor, and Agent Relationships", "Employee Data Privacy",
+      "Ethical Supplier Practices", "Export Control", "Fair Employment Practices",
+      "Import control", "Insider Trading and Stock Tipping", "Interacting with Competitors",
+      "Money laundering prevention", "Non-Discrimination in Employment", "Patent",
+      "Pricing", "Product Risk Management", "Trade Secret Rights",
+      "Working with Governments", "Workplace Harassment"
+    ];
+
+    const AWARDS = [
+      {
+        id: "award-tuwaiq",
+        title: "Absher Tuwaiq Hackathon Appreciation",
+        organization: "Tuwaiq Academy | Absher",
+        date: "Dec 2025",
+        desc: "Awarded for active participation and idea development in the hackathon. Gained hands-on experience in leadership and machine learning.",
+        icon: "Trophy",
+        image: "1766419302926.jpg"
+      },
+      {
+        id: "award-sabtank",
+        title: "Certificate Of Appreciation - SABTANK",
+        organization: "SABTANK – SABIC",
+        date: "Sep 2025",
+        desc: "Honored to receive a Certificate of Appreciation from SABTANK – SABIC in recognition of my efforts and contributions during my training period. This reflects the valuable experience and skills developed with the team.",
+        icon: "ShieldCheck",
+        image: "1757149111369.jpg"
+      },
+      {
+        id: "award-sabtank-recommendation",
+        title: "Recommendation Letter – SABTANK (SABIC)",
+        organization: "SABTANK – SABIC",
+        date: "Sep 2025",
+        desc: "Received an official recommendation letter from SABTANK – SABIC in recognition of my performance, dedication, and contributions during the training program. The letter highlights my professionalism, teamwork, and commitment to learning and growth.",
+        icon: "FileText",
+        image: "1757149705547.jpg"
+      },
+      {
+        id: "award-icosmartin",
+        title: "Certificate of Appreciation - ICoSmartTin 2025",
+        organization: " كليات الخليج | Gulf Colleges",
+        date: "Issued Nov 2025",
+        desc: "Received a Certificate of Appreciation for attending the 4th International Conference on Smart Systems, Emerging Technologies, and Innovative Applications (ICoSmarTin 2025).",
+        icon: "Award",
+        image: "1763376931866.jpg"
+      },
+      {
+        id: "award-misk",
+        title: "Misk Foundation Honor",
+        organization: "Misk Foundation | مؤسسة مسك",
+        date: "2025",
+        desc: "Recognition of achievement in Misk Foundation programs, focusing on professional development and career excellence.",
+        icon: "Star",
+        image: "1749790152273.jpg"
+      }
+    ];
+
+    function SectionHeading({ Icon, title, light = false }) {
+      return (
+        React.createElement('div', { className: "text-center mb-14", }
+          , React.createElement(_framermotion.motion.div, {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true },
+            transition: { duration: 0.5 },
+            className: `inline-flex items-center gap-2 px-5 py-2 rounded-full mb-4 ${light ? "bg-white/20 text-white" : "bg-pink-100 text-pink-600"}`,
+          }
+
+            , React.createElement(Icon, { size: 15, })
+            , React.createElement('span', { className: "text-xs font-black uppercase tracking-widest", }, title)
+          )
+          , React.createElement(_framermotion.motion.div, {
+            initial: { scaleX: 0 },
+            whileInView: { scaleX: 1 },
+            viewport: { once: true },
+            transition: { duration: 0.6, delay: 0.2 },
+            className: `w-16 h-1 mx-auto rounded-full ${light ? "bg-white/40" : "bg-gradient-to-r from-pink-400 to-rose-500"}`,
+          }
+          )
+        )
+      );
+    }
+
+    function ImgPlaceholder({ label, aspect = "aspect-video", id, src }) {
+      return (
+        React.createElement('div', {
+          id: id,
+          className: `${aspect} bg-pink-50 flex items-center justify-center border-2 border-dashed border-pink-200 rounded-xl overflow-hidden relative`,
+        }
+          , src ? React.createElement('img', { src: src, className: "w-full h-full object-cover", alt: label })
+            : React.createElement('div', { className: "text-center p-4", }
+              , React.createElement(_lucidereact.Camera, { className: "text-pink-300 mx-auto mb-2", size: 26, })
+              , React.createElement('p', { className: "text-pink-400 text-[10px] font-bold uppercase tracking-widest", }, label)
+            )
+        )
+      );
+    }
+
+    const TRANSLATIONS = {
+      en: {
+        nav: {
+          home: "Home", about: "About", cv: "CV", education: "Education", experience: "Experience",
+          skills: "Skills", projects: "Projects", certifications: "Certifications", professional_development: "Professional Development", awards: "Awards",
+          volunteer: "Volunteer", languages: "Languages", contact: "Contact"
+        },
+        hero: {
+          title: "HASNA",
+          subtitle: "Cybersecurity Specialist",
+          description: "Passionate about protecting digital assets, exploring vulnerabilities, and building a safer digital world through knowledge and dedication.",
+          discover: "✨ Discover My Journey",
+          contact: "Contact Me"
+        },
+        about: {
+          title: "About Me",
+          greeting: "Hello, I'm Hasna 👋",
+          role: "Cybersecurity Major · Ethical Hacker",
+          p1: "I am a results-driven Cybersecurity professional-in-training, dedicated to fortifying digital ecosystems and staying ahead of the rapidly evolving threat landscape. With a specialization in applied information technology and a focus on ethical hacking and network security, I bring a proactive, analytical approach to identifying and mitigating system vulnerabilities.",
+          p2: "My technical expertise is complemented by a deep commitment to community leadership and continuous research, ensuring my defensive strategies remain at the vanguard of innovation.",
+          stats: { major: "Major", degree: "Degree", focus: "Focus", passion: "Passion" }
+        },
+        contact: {
+          title: "Get In Touch",
+          subtitle: "Feel free to reach out — I'd love to connect! 💌",
+          phone: "Phone",
+          email: "Email",
+          linkedin: "LinkedIn",
+          github: "GitHub",
+          status: "Open to Opportunities"
+        }
+      },
+      ar: {
+        nav: {
+          home: "الرئيسية", about: "من أنا", cv: "السيرة الذاتية", education: "التعليم", experience: "الخبرة",
+          skills: "المهارات", projects: "المشاريع", certifications: "الشهادات", professional_development: "التطوير المهني", awards: "الجوائز",
+          volunteer: "التطوع", languages: "اللغات", contact: "اتصل بي"
+        },
+        hero: {
+          title: "حسناء",
+          subtitle: "أخصائية أمن سيبراني",
+          description: "شغوفة بحماية الأصول الرقمية، واستكشاف الثغرات الأمنية، وبناء عالم رقمي أكثر أماناً من خلال المعرفة والتفاني.",
+          discover: "✨ اكتشف رحلتي",
+          contact: "تواصل معي"
+        },
+        about: {
+          title: "من أنا",
+          greeting: "أهلاً، أنا حسناء 👋",
+          role: "تخصص أمن سيبراني · هاكر أخلاقي",
+          p1: "أنا متخصصة في الأمن السيبراني (قيد التدريب)، أركز على تقوية الأنظمة الرقمية والبقاء في طليعة مشهد التهديدات المتطور باستمرار. مع تخصص في تكنولوجيا المعلومات التطبيقية وتركيز على الهكر الأخلاقي وأمن الشبكات، أقدم نهجاً استباقياً وتحليلياً لتحديد وتخفيف نقاط الضعف في الأنظمة.",
+          p2: "تكتمل خبرتي التقنية بالتزام عميق بالقيادة المجتمعية والبحث المستمر، مما يضمن بقاء استراتيجياتي الدفاعية في طليعة الابتكار.",
+          stats: { major: "التخصص", degree: "الدرجة", focus: "التركيز", passion: "الشغف" }
+        },
+        contact: {
+          title: "تواصل معي",
+          subtitle: "لا تتردد في التواصل معي — يسعدني ذلك! 💌",
+          phone: "الهاتف",
+          email: "البريد الإلكتروني",
+          linkedin: "لينكد إن",
+          github: "جيت هاب",
+          status: "متاحة للفرص الوظيفية"
+        }
+      }
+    };
+
+    function HasnaPortfolio() {
+      const [menuOpen, setMenuOpen] = _react.useState.call(void 0, false);
+      const [lang, setLang] = _react.useState.call(void 0, 'en');
+      const t = TRANSLATIONS[lang];
+
+      const navLinks = [
+        { label: t.nav.home, id: "home" },
+        { label: t.nav.about, id: "about" },
+        { label: t.nav.cv, id: "cv" },
+        { label: t.nav.education, id: "education" },
+        { label: t.nav.experience, id: "experience" },
+        { label: t.nav.skills, id: "skills" },
+        { label: t.nav.projects, id: "projects" },
+        { label: t.nav.certifications, id: "certifications" },
+        { label: t.nav.professional_development, id: "professional-development" },
+        { label: t.nav.awards, id: "awards" },
+        { label: t.nav.volunteer, id: "volunteer" },
+        { label: t.nav.languages, id: "languages" },
+        { label: t.nav.contact, id: "contact" },
+      ];
+
+      const go = (id) => {
+        _optionalChain([document, 'access', _2 => _2.getElementById, 'call', _3 => _3(id), 'optionalAccess', _4 => _4.scrollIntoView, 'call', _5 => _5({ behavior: "smooth" })]);
+        setMenuOpen(false);
+      };
+
+      const toggleLang = () => {
+        const newLang = lang === 'en' ? 'ar' : 'en';
+        setLang(newLang);
+        document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = newLang;
+      };
+
+      return (
+        React.createElement('div', { className: "min-h-screen bg-pink-50 overflow-x-hidden", }
+
+          /* ── NAVBAR ── */
+          , React.createElement('header', { className: "fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-pink-100 shadow-sm", }
+            , React.createElement('div', { className: "max-w-7xl mx-auto px-5 py-3 flex items-center justify-between", }
+              , React.createElement(_framermotion.motion.button, {
+                onClick: () => go("home"),
+                initial: { opacity: 0, x: -20 },
+                animate: { opacity: 1, x: 0 },
+                className: "flex items-center gap-2.5",
+              }
+
+                , React.createElement(_framermotion.motion.div, {
+                  whileHover: { rotate: 360 },
+                  transition: { duration: 0.5 },
+                  className: "w-9 h-9 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center shadow-md",
+                }
+
+                  , React.createElement(_lucidereact.Heart, { className: "text-white fill-current", size: 18, })
+                )
+                , React.createElement('div', { className: "flex gap-0.5", }
+                  , "HASNA".split('').map((char, i) =>
+                    React.createElement(_framermotion.motion.span, {
+                      key: i,
+                      animate: { y: [0, -4, 0] },
+                      transition: {
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "easeInOut"
+                      },
+                      className: "font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 text-xl tracking-widest",
+                    }, char)
+                  )
+                )
+              )
+
+              , React.createElement('nav', { className: "hidden lg:flex items-center gap-0.5", }
+                , navLinks.map((n, i) => (
+                  React.createElement(_framermotion.motion.button, {
+                    key: n.id,
+                    initial: { opacity: 0, y: -10 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: i * 0.05 },
+                    onClick: () => go(n.id),
+                    className: "px-3 py-1.5 text-xs font-bold text-gray-500 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-all duration-200 tracking-wide",
+                  }
+
+                    , n.label
+                  )
+                ))
+              )
+
+              , React.createElement('div', { className: "flex items-center gap-3", }
+                , React.createElement(_framermotion.motion.button, {
+                  whileHover: { scale: 1.05 },
+                  whileTap: { scale: 0.95 },
+                  onClick: toggleLang,
+                  className: "px-3 py-1.5 rounded-full bg-pink-50 text-pink-600 text-[10px] font-black border border-pink-100 shadow-sm hover:bg-pink-100 transition-colors uppercase tracking-tight",
+                }
+                  , lang === 'en' ? "العربية" : "English"
+                )
+                , React.createElement('button', {
+                  onClick: () => setMenuOpen(!menuOpen),
+                  className: "lg:hidden p-2 text-pink-500 rounded-lg hover:bg-pink-50 transition",
+                }
+
+                  , menuOpen ? React.createElement(_lucidereact.X, { size: 20, }) : React.createElement(_lucidereact.Menu, { size: 20, })
+                )
+              )
+            )
+
+            , React.createElement(_framermotion.AnimatePresence, null
+              , menuOpen && (
+                React.createElement(_framermotion.motion.div, {
+                  initial: { height: 0, opacity: 0 },
+                  animate: { height: "auto", opacity: 1 },
+                  exit: { height: 0, opacity: 0 },
+                  transition: { duration: 0.25 },
+                  className: "lg:hidden overflow-hidden bg-white border-t border-pink-100",
+                }
+
+                  , React.createElement('div', { className: "px-5 py-4 grid grid-cols-3 gap-2", }
+                    , navLinks.map((n) => (
+                      React.createElement('button', {
+                        key: n.id,
+                        onClick: () => go(n.id),
+                        className: "py-2 text-xs font-bold text-gray-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition text-center",
+                      }
+
+                        , n.label
+                      )
+                    ))
+                  )
+                )
+              )
+            )
+          )
+
+          , React.createElement(_framermotion.AnimatePresence, { mode: "wait" }
+            , React.createElement(_framermotion.motion.main, {
+              key: lang,
+              initial: { opacity: 0, x: lang === 'ar' ? -20 : 20 },
+              animate: { opacity: 1, x: 0 },
+              exit: { opacity: 0, x: lang === 'ar' ? 20 : -20 },
+              transition: { duration: 0.4, ease: "easeInOut" },
+            }
+              /* ── HERO ── */
+              , React.createElement('section', { id: "home", className: "relative min-h-screen flex items-center justify-center pt-16 px-6 overflow-hidden bg-gradient-to-br from-rose-50 via-pink-100 to-rose-200", }
+                /* Animated blobs */
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] },
+                  transition: { duration: 8, repeat: Infinity },
+                  className: "absolute top-24 right-12 w-80 h-80 rounded-full bg-pink-300 blur-3xl pointer-events-none",
+                })
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] },
+                  transition: { duration: 10, repeat: Infinity, delay: 2 },
+                  className: "absolute bottom-20 left-10 w-96 h-96 rounded-full bg-rose-300 blur-3xl pointer-events-none",
+                })
+
+                /* Luxurious Snow Effect */
+                , SNOW_PARTICLES.map((p) => (
+                  React.createElement(_framermotion.motion.div, {
+                    key: p.id,
+                    initial: { y: -20, opacity: 0, x: 0 },
+                    animate: {
+                      y: "110vh",
+                      opacity: [0, p.opacity, p.opacity, 0],
+                      x: [0, (Math.random() - 0.5) * 40, 0]
+                    },
+                    transition: {
+                      duration: p.duration,
+                      repeat: Infinity,
+                      delay: p.delay,
+                      ease: "linear",
+                    },
+                    className: "absolute rounded-full pointer-events-none",
+                    style: {
+                      left: p.left,
+                      width: p.size,
+                      height: p.size,
+                      backgroundColor: p.color,
+                      zIndex: 15
+                    },
+                  })
+                ))
+
+                /* Hair Bows Everywhere */
+                , BOW_PARTICLES.map((b) => (
+                  React.createElement(_framermotion.motion.div, {
+                    key: b.id,
+                    initial: { opacity: 0, scale: 0.5 },
+                    whileInView: { opacity: 0.25, scale: 1 },
+                    animate: {
+                      y: [0, -20, 0],
+                      rotate: [b.rotation, b.rotation + 15, b.rotation],
+                    },
+                    transition: {
+                      duration: b.duration,
+                      repeat: Infinity,
+                      delay: b.delay,
+                      ease: "easeInOut",
+                    },
+                    className: "absolute text-pink-300 pointer-events-none z-0",
+                    style: {
+                      left: b.left,
+                      top: b.top,
+                      fontSize: b.size,
+                    },
+                  }
+                    , "🎀"
+                  )
+                ))
+
+
+                , React.createElement('div', { className: "max-w-4xl mx-auto text-center relative z-20", }
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, scale: 0.8 },
+                    animate: { opacity: 1, scale: 1 },
+                    transition: { duration: 0.8 },
+                    className: "mb-12 relative inline-block",
+                  }
+                    /* Outer Moving Circle (Dashed Ring) */
+                    , React.createElement(_framermotion.motion.div, {
+                      animate: { rotate: 360 },
+                      transition: { duration: 20, repeat: Infinity, ease: "linear" },
+                      className: "absolute -inset-6 border-2 border-pink-400/40 border-dashed rounded-full",
+                    })
+                    /* Inner Large Circle with H Logo */
+                    , React.createElement('div', { className: "w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-pink-500 via-rose-500 to-pink-600 flex items-center justify-center mx-auto shadow-2xl border-4 border-white relative z-10 transform hover:rotate-6 transition-transform duration-500", }
+                      , React.createElement('span', { className: "text-white font-black text-6xl md:text-7xl", }, "H")
+                    )
+                  )
+
+                  , React.createElement(_framermotion.motion.h1, {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: 0.3 },
+                    key: `title-${lang}`,
+                    className: "text-6xl md:text-8xl font-black text-gray-800 mb-6 tracking-tighter flex flex-wrap justify-center gap-2 md:gap-4 uppercase",
+                  }
+                    , t.hero.title.split('').map((char, i) =>
+                      React.createElement(_framermotion.motion.span, {
+                        key: i,
+                        animate: { y: [0, -12, 0] },
+                        transition: {
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: i * 0.2,
+                          ease: "easeInOut"
+                        },
+                        className: "inline-block",
+                      }, char)
+                    )
+                    , React.createElement('span', { className: "text-pink-500", }, "."),
+                  )
+
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: 0.5 },
+                    key: `sub-${lang}`,
+                    className: "relative inline-block",
+                  }
+                    , React.createElement('p', { className: "text-xl md:text-2xl font-bold text-pink-600 mb-8 tracking-wide bg-white/60 backdrop-blur-sm px-6 py-2 rounded-2xl shadow-sm inline-block border border-white/40", }
+                      , t.hero.subtitle
+                    )
+                  )
+
+                  , React.createElement(_framermotion.motion.p, {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: 0.7 },
+                    key: `desc-${lang}`,
+                    className: "text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-medium",
+                  }
+                    , t.hero.description
+                  )
+
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: 0.9 },
+                    className: "flex flex-wrap justify-center gap-4 mb-16",
+                  }
+                    , React.createElement('button', {
+                      onClick: () => go('about'),
+                      className: "px-8 py-4 bg-gray-900 text-white rounded-2xl font-black text-sm hover:bg-gray-800 transition-all hover:scale-105 shadow-xl flex items-center gap-2",
+                    }
+                      , t.hero.discover
+                      , React.createElement(_lucidereact.ArrowRight, { size: 18, })
+                    )
+                    , React.createElement('button', {
+                      onClick: () => go('contact'),
+                      className: "px-8 py-4 bg-white text-gray-800 border-2 border-gray-100 rounded-2xl font-black text-sm hover:border-pink-200 transition-all hover:scale-105 shadow-lg flex items-center gap-2",
+                    }
+                      , React.createElement(_lucidereact.Mail, { size: 18, className: "text-pink-500", })
+                      , t.hero.contact
+                    )
+                  )
+
+                  /* Extra Badges */
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { delay: 1.2 },
+                    className: "flex flex-wrap justify-center gap-3",
+                  }
+                    , ["🛡️ Cybersecurity", "💻 Tech Leader", "🏆 Award Holder"].map((badge, i) => (
+                      React.createElement(_framermotion.motion.span, {
+                        key: badge,
+                        initial: { opacity: 0, scale: 0.8 },
+                        animate: { opacity: 1, scale: 1 },
+                        transition: { delay: 1.4 + i * 0.1 },
+                        className: "text-[10px] bg-white/80 backdrop-blur-md text-pink-600 px-4 py-1.5 rounded-full font-black border border-pink-100 shadow-sm uppercase tracking-widest",
+                      }
+                        , badge
+                      )
+                    ))
+                  )
+                )
+
+                /* Bottom Scroll Hint */
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { y: [0, 10, 0] },
+                  transition: { duration: 2, repeat: Infinity },
+                  className: "absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30 flex flex-col items-center gap-1",
+                }
+                  , React.createElement('span', { className: "text-[9px] font-black uppercase tracking-[0.3em] text-gray-500", }, "Scroll")
+                  , React.createElement(_lucidereact.ChevronDown, { size: 18, className: "text-pink-400", })
+                )
+              )
+
+              /* ── ABOUT ── */
+              , React.createElement('section', { id: "about", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-5xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.User, title: t.about.title, })
+                  , React.createElement('div', { className: "grid md:grid-cols-2 gap-12 items-center", }
+                    , React.createElement(_framermotion.motion.div, {
+                      initial: { opacity: 0, x: lang === 'ar' ? 50 : -50 },
+                      whileInView: { opacity: 1, x: 0 },
+                      viewport: { once: true },
+                      transition: { duration: 0.6 },
+                      className: "flex justify-center",
+                    }
+
+                      , React.createElement('div', { className: "relative", }
+                        /* Moving Pink Frames */
+                        , React.createElement(_framermotion.motion.div, {
+                          animate: { rotate: 360, scale: [1, 1.05, 1] },
+                          transition: { duration: 15, repeat: Infinity, ease: "linear" },
+                          className: "absolute -inset-3 border-2 border-pink-200 border-dashed rounded-[2.5rem] opacity-40 pointer-events-none",
+                        })
+                        , React.createElement(_framermotion.motion.div, {
+                          animate: { rotate: -360, scale: [1, 1.02, 1] },
+                          transition: { duration: 25, repeat: Infinity, ease: "linear" },
+                          className: "absolute -inset-5 border border-rose-100 border-dotted rounded-[3rem] opacity-30 pointer-events-none",
+                        })
+
+                        , React.createElement('div', { id: "about-photo-container", className: "w-64 h-64 rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-gradient-to-br from-pink-50 to-rose-50 flex items-center justify-center relative z-10", }
+                          , React.createElement('img', { src: '1E62C4E5-FEF8-47F3-B830-84350985B79B (1) (1).png', className: "w-full h-full object-cover", style: { display: 'block' } })
+                        )
+                      )
+                    )
+
+                    , React.createElement(_framermotion.motion.div, {
+                      initial: { opacity: 0, x: lang === 'ar' ? -50 : 50 },
+                      whileInView: { opacity: 1, x: 0 },
+                      viewport: { once: true },
+                      transition: { duration: 0.6 },
+                      className: "space-y-5",
+                    }
+
+                      , React.createElement('div', null
+                        , React.createElement('h3', { className: "text-3xl font-black text-gray-800 mb-1", }, t.about.greeting)
+                        , React.createElement('p', { className: "text-pink-400 font-black text-xs uppercase tracking-widest", }, t.about.role)
+                      )
+                      , React.createElement('p', { className: "text-gray-600 leading-relaxed text-sm", }, t.about.p1)
+                      , React.createElement('p', { className: "text-gray-600 leading-relaxed text-sm", }, t.about.p2)
+                      , React.createElement('div', { className: "grid grid-cols-2 gap-3 pt-2", }
+                        , [
+                          { k: t.about.stats.major, v: lang === 'en' ? "Cybersecurity" : "الأمن السيبراني" },
+                          { k: t.about.stats.degree, v: lang === 'en' ? "Bachelor's" : "بكالوريوس" },
+                          { k: t.about.stats.focus, v: lang === 'en' ? "Ethical Hacking" : "الهكر الأخلاقي" },
+                          { k: t.about.stats.passion, v: lang === 'en' ? "Digital Security" : "الأمن الرقمي" },
+                        ].map(({ k, v }) => (
+                          React.createElement(_framermotion.motion.div, {
+                            key: k,
+                            whileHover: { scale: 1.03 },
+                            className: "bg-gradient-to-br from-pink-50 to-white rounded-xl p-3 border border-pink-100 shadow-sm",
+                          }
+
+                            , React.createElement('p', { className: "text-xs text-pink-500 font-black uppercase tracking-wide", }, k)
+                            , React.createElement('p', { className: "text-gray-700 font-bold text-sm mt-0.5", }, v)
+                          )
+                        ))
+                      )
+                    )
+                  )
+                )
+              )
+
+              /* ── CV SECTION ── */
+              , React.createElement('section', { id: "cv", className: "py-24 px-6 bg-gradient-to-br from-gray-50 to-white overflow-hidden", }
+                , React.createElement('div', { className: "max-w-3xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.FileText, title: "Professional Resume", })
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, y: 30 },
+                    whileInView: { opacity: 1, y: 0 },
+                    whileHover: { y: -8, transition: { duration: 0.3 } },
+                    viewport: { once: true },
+                    className: "bg-white rounded-3xl border border-pink-100 shadow-xl overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:shadow-pink-200/50 hover:border-pink-300",
+                  }
+                    , React.createElement('div', { className: "grid md:grid-cols-3 gap-0", }
+                      , React.createElement('div', { className: "p-10 bg-gradient-to-br from-pink-500 to-rose-600 flex flex-col justify-center items-center text-center text-white", }
+                        , React.createElement('div', { className: "w-20 h-20 bg-white/20 rounded-2xl backdrop-blur-md flex items-center justify-center mb-6 shadow-inner", }
+                          , React.createElement(_lucidereact.FileText, { size: 40, })
+                        )
+                        , React.createElement('h3', { className: "text-2xl font-black mb-2", }, "Resume / CV")
+                        , React.createElement('p', { className: "text-pink-100 text-sm font-medium leading-relaxed", }, "My theoretical knowledge and practical expertise structured for professional review.")
+                      )
+                      , React.createElement('div', { className: "md:col-span-2 p-10 flex flex-col justify-center", }
+                        , React.createElement('div', { id: "cv-section-display", className: "aspect-video flex items-center justify-center border border-pink-100 rounded-2xl bg-pink-50/30 mb-8 overflow-hidden relative shadow-inner", }
+                          , React.createElement('img', {
+                            src: "Screenshot 2026-02-23 122046.png",
+                            className: "w-full h-full object-cover object-top",
+                            alt: "Curriculum Vitae Preview"
+                          })
+                        )
+                        , React.createElement('div', { className: "flex flex-wrap gap-4", }
+                          , React.createElement('a', {
+                            href: "Screenshot 2026-02-23 122046.png",
+                            target: "_blank",
+                            className: "flex-1 px-8 py-4 bg-pink-500 text-white rounded-2xl font-black text-sm hover:bg-pink-600 transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-3",
+                          }
+                            , React.createElement(_lucidereact.Eye, { size: 18 })
+                            , "View Full Resume"
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+
+              /* ── EDUCATION ── */
+              , React.createElement('section', { id: "education", className: "py-24 px-6 bg-pink-50", }
+                , React.createElement('div', { className: "max-w-4xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.GraduationCap, title: "Education", })
+                  , React.createElement('div', { className: "space-y-5", }
+                    , [
+                      {
+                        degree: "Bachelor of Applied Science (BASc) — Information Technology, Cybersecurity Track",
+                        school: "كليات الخليج | Gulf Colleges",
+                        period: "2022 – 2026",
+                        gpa: "GPA: 4.86 / 5.0",
+                        desc: "Currently pursuing a Bachelor of Applied Science (BASc) in Information Technology with a specialized concentration in Cybersecurity at Gulf Colleges, I maintain a prestigious 4.86/5.0 GPA, reflecting a rigorous commitment to technical excellence. My academic portfolio is built on a solid foundation of network architecture resilience, advanced cryptographic standards, digital forensics, and proactive security auditing. I have demonstrated a robust aptitude for translating complex theoretical security principles into scalable defensive frameworks, particularly through advanced-level labs and terminal-stage coursework. Beyond academics, I hold leadership positions within the Cybersecurity Club and contribute to multi-disciplinary initiatives across the Volunteer, Talent, and Entrepreneurship forums. My focus is on bridging the gap between offensive security exploration and enterprise-grade defensive implementation, preparing to contribute strategic value to the global cybersecurity landscape.",
+                        courses: ["Network Security", "Cryptography", "Digital Forensics", "Ethical Hacking", "Penetration Testing", "Operating Systems", "Database Security", "Cyber Law & Ethics"],
+                        activities: [
+                          "🛡️ Cybersecurity Club — Active Member & Upgraded Membership",
+                          "🤝 Volunteer Club — Content Design & Tech Publishing",
+                          "🎨 Talent & Creativity Club",
+                          "🔬 Scientific Forum",
+                          "💼 Training & Employment Forum",
+                          "🌐 Cultural Forum",
+                          "🏆 Cybersecurity Hackathon Participant",
+                          "📢 Awareness Events & Tech Competitions",
+                        ],
+                        achievements: [
+                          "🎓 Dean's Honor List — Multiple Semesters",
+                          "📊 GPA: 4.86 / 5.0",
+                          "🥇 Top Performer in Cybersecurity Track",
+                          "🌐 Participated in National Cybersecurity Competitions",
+                          "🏅 Best Graduation Project Certificate — Awarded in Front of Audience",
+                          "📜 Certifications for Each Club Activity — Gulf Colleges",
+                          "📜 Certifications of Programs & Workshops — Gulf Colleges",
+                          "🤝 Volunteer Certification — Gulf Colleges",
+                          "📸 Best Photographer Award — Gulf Colleges (Work Published on Official Twitter/X)",
+                          "🎨 Arts & Talent Certification — Gulf Colleges",
+                          "⭐ Special Student Recognition — Gulf Colleges",
+                          "🔰 Upgraded Membership — Cybersecurity Club, Gulf Colleges",
+                        ],
+                        skills: [
+                          "Communication", "Software Development", "Cybersecurity", "JavaScript",
+                          "Network Security", "Program Development", "Cybersecurity Tools",
+                          "System Design & Analysis", "MySQL", "Anaconda", "Team Collaboration",
+                          "Website Building", "Computer Terminology", "Incident Response",
+                          "Cyber Threat Hunting (CTH)", "Cyber Operations", "TCP/IP",
+                          "Kali Linux", "Offensive AI", "Penetration Testing", "Risk Management",
+                          "Web Application Security", "Virtualization & Lab Environments",
+                          "Technical Skills", "SDLC", "CTF Competitions",
+                        ],
+                      },
+                    ].map((e, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: i,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.15 },
+                        whileHover: { y: -3, boxShadow: "0 10px 30px rgba(236,72,153,0.1)" },
+                        className: "bg-white rounded-2xl p-6 border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300",
+                      }
+
+                        , React.createElement('div', { className: "flex gap-5", }
+                          , React.createElement('div', { className: "flex-shrink-0", }
+                            , React.createElement('div', { className: "w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center shadow-lg", }
+                              , React.createElement(_lucidereact.GraduationCap, { className: "text-white", size: 20, })
+                            )
+                          )
+                          , React.createElement('div', { className: "flex-1 min-w-0", }
+                            , React.createElement('div', { className: "flex flex-wrap items-start justify-between gap-2", }
+                              , React.createElement('div', null
+                                , React.createElement('h3', { className: "font-black text-gray-800 text-base", }, e.degree)
+                                , React.createElement('p', { className: "text-pink-500 font-bold text-sm", }, e.school)
+                              )
+                              , React.createElement('div', { className: "text-right", }
+                                , React.createElement('span', { className: "inline-block text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full font-bold", }, e.period)
+                                , React.createElement('p', { className: "text-xs text-gray-400 mt-1 font-medium", }, e.gpa)
+                              )
+                            )
+                            , React.createElement('p', { className: "text-gray-500 text-sm mt-3 leading-relaxed", }, e.desc)
+                          )
+                        )
+
+                        /* ── Courses ── */
+                        , React.createElement('div', { className: "mt-5 pt-4 border-t border-pink-50", }
+                          , React.createElement('p', { className: "text-xs font-black text-pink-500 uppercase tracking-widest mb-2", }, "📚 Key Courses")
+                          , React.createElement('div', { className: "flex flex-wrap gap-2", }
+                            , e.courses.map(c => React.createElement('span', { key: c, className: "text-xs px-3 py-1 bg-pink-50 text-pink-600 rounded-full font-semibold border border-pink-100", }, c))
+                          )
+                        )
+
+                        /* ── Activities ── */
+                        , React.createElement('div', { className: "mt-4", }
+                          , React.createElement('p', { className: "text-xs font-black text-rose-500 uppercase tracking-widest mb-2", }, "🎯 Activities & Clubs")
+                          , React.createElement('div', { className: "flex flex-wrap gap-2", }
+                            , e.activities.map(a => React.createElement('span', { key: a, className: "text-xs px-3 py-1 bg-rose-50 text-rose-600 rounded-full font-semibold border border-rose-100", }, a))
+                          )
+                        )
+
+                        /* ── Achievements ── */
+                        , React.createElement('div', { className: "mt-4", }
+                          , React.createElement('p', { className: "text-xs font-black text-amber-500 uppercase tracking-widest mb-2", }, "🏆 Achievements")
+                          , React.createElement('ul', { className: "space-y-1", }
+                            , e.achievements.map(ach => React.createElement('li', { key: ach, className: "flex items-center gap-2 text-xs text-gray-600 font-medium", }
+                              , React.createElement('span', { className: "w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0", })
+                              , ach
+                            ))
+                          )
+                        )
+
+                        /* ── Skills ── */
+                        , React.createElement('div', { className: "mt-4", }
+                          , React.createElement('p', { className: "text-xs font-black text-indigo-500 uppercase tracking-widest mb-2", }, "💻 Skills Gained")
+                          , React.createElement('div', { className: "flex flex-wrap gap-2", }
+                            , e.skills.map(sk => React.createElement(_framermotion.motion.span, {
+                              key: sk,
+                              whileHover: { scale: 1.07 },
+                              className: "text-xs px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full font-semibold border border-indigo-100 cursor-default",
+                            }, sk))
+                          )
+                        )
+
+                        /* ── Certifications Badge ── */
+                        , React.createElement('div', { className: "mt-5 pt-4 border-t border-pink-50 flex items-center gap-3", }
+                          , React.createElement(_framermotion.motion.div, {
+                            whileHover: { scale: 1.05 },
+                            className: "flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-full shadow-md",
+                          }
+                            , React.createElement(_lucidereact.Award, { size: 15, className: "text-white", })
+                            , React.createElement('span', { className: "text-xs font-black tracking-wide", }, "17 Certifications Earned")
+                          )
+                          , React.createElement('span', { className: "text-xs text-gray-400 font-medium", }, "See Certifications section ↓")
+                        )
+                      )
+                    ))
+                    /* ── Gulf College Certification Card ── */
+                    , React.createElement(_framermotion.motion.div, {
+                      initial: { opacity: 0, y: 30 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: true },
+                      transition: { duration: 0.5, delay: 0.2 },
+                      whileHover: { y: -3, boxShadow: "0 10px 30px rgba(236,72,153,0.1)" },
+                      className: "bg-gradient-to-br from-pink-50 to-white rounded-2xl p-5 border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300 flex gap-4 items-center",
+                    }
+                      , React.createElement('div', { className: "flex-shrink-0", }
+                        , React.createElement('div', { className: "w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg", }
+                          , React.createElement(_lucidereact.Award, { className: "text-white", size: 20, })
+                        )
+                      )
+                      , React.createElement('div', { className: "flex-1 min-w-0", }
+                        , React.createElement('div', { className: "flex flex-wrap items-center justify-between gap-2", }
+                          , React.createElement('div', null
+                            , React.createElement('h3', { className: "font-black text-gray-800 text-sm", }, "Gulf College Certification")
+                            , React.createElement('p', { className: "text-pink-500 font-bold text-xs mt-0.5", }, "Gulf Colleges — Issued 2024")
+                          )
+                          , React.createElement('span', { className: "inline-flex items-center gap-1 text-xs bg-green-100 text-green-600 px-3 py-1 rounded-full font-bold", }
+                            , "✓ Verified"
+                          )
+                        )
+                        , React.createElement('p', { className: "text-gray-500 text-xs mt-2 leading-relaxed", }, "Awarded by Gulf Colleges in recognition of academic excellence and completion of specialized coursework in Cybersecurity.")
+                      )
+                    )
+                  )
+                )
+              )
+
+              /* ── EXPERIENCE ── */
+              , React.createElement('section', { id: "experience", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-4xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Briefcase, title: "Experience", })
+                  , React.createElement('div', { className: "space-y-5", }
+                    , [
+                      {
+                        role: "President – Alumni Association",
+                        company: "كليات الخليج | Gulf Colleges",
+                        period: "Feb 2026 – Present",
+                        type: "Leadership",
+                        desc: "Elected as President following a vote of confidence from members. Leading the association with a strategic vision focused on strengthening alumni engagement, building professional networks, and fostering collaboration between graduates and current students. Initiated impactful programs, strengthened academic partnerships, and promoted networking opportunities aligned with market needs.",
+                        skills: ["Strategic Planning", "Leadership", "Engagement Programs", "Professional Networking", "Training Program Design"]
+                      },
+                      {
+                        role: "Vice President – Cybersecurity Club",
+                        company: "كليات الخليج | Gulf Colleges",
+                        period: "Jan 2025 – Present",
+                        type: "Leadership",
+                        desc: "Leading the club's strategic direction and enhancing technical proficiency. Managed advanced technical workshops (penetration testing, forensics, vulnerability management) and supervised internal/external CTF competitions. Successfully executed a college-wide CTF and increased student engagement by 60%.",
+                        skills: ["Management", "Challenge Driven", "Team Building", "CTF Coordination", "Strategy Development"]
+                      },
+                      {
+                        role: "Member – Cybersecurity Club",
+                        company: "كليات الخليج | Gulf Colleges",
+                        period: "Aug 2022 – Dec 2024",
+                        type: "Active Membership",
+                        desc: "Contributed to planning and executing technical events. Supported development of content in vulnerability analysis, digital safety, and social engineering. Assisted in organizing multiple workshops and participated in campus-wide awareness campaigns.",
+                        skills: ["Cybersecurity Incident Management", "Data Analysis", "CTI", "CTF Challenges", "Awareness Initiatives"]
+                      },
+                      {
+                        role: "Cybersecurity Media Specialist",
+                        company: "Cyber Guard Club",
+                        period: "Dec 2025 – Present",
+                        type: "Remote · Part-time",
+                        desc: "Working within the media department to enhance cybersecurity awareness. Creating technical content and awareness materials, translating complex cyber threats into engaging messages, and contributing to incident communication and security culture.",
+                        skills: ["Media Relations", "Content Strategy", "Digital Communication", "Awareness Materials", "Member Relations"]
+                      },
+                      {
+                        role: "Project Lead – Risk Management System",
+                        company: "GitHub · Open Source",
+                        period: "Aug 2025 – Present",
+                        type: "Remote · Self-employed",
+                        desc: "Developed a comprehensive cybersecurity management system to monitor, detect, and mitigate potential threats. Implemented key security features and integrated real-time reporting dashboards. Showcasing practical application of security principles and modern tools.",
+                        skills: ["Python", "JavaScript", "Docker", "SQL", "Cybersecurity Management"]
+                      },
+                      {
+                        role: "Leader Member in CTF",
+                        company: "Black Hat",
+                        period: "Dec 2025",
+                        type: "On-site · Seasonal",
+                        desc: "Led a high-performing team in the Black Hat CTF competition. Coordinated strategy, task assignments, and problem-solving across challenges including reverse engineering, web exploitation, cryptography, and forensics.",
+                        skills: ["Kali Linux", "Reverse Engineering", "Web Exploitation", "Cryptography", "Digital Forensics", "Strategic Planning"]
+                      },
+                      {
+                        role: "COOP Trainee (OT Department)",
+                        company: "SABIC",
+                        period: "Jun 2025 – Sep 2025",
+                        type: "Full-time Internship",
+                        desc: "Trained in the Operation Technology (OT) department at SABTANK. Gained exposure to industrial workflows, problem-solving in a global corporate environment, and professional documenting/reporting. Delivered weekly presentations on technical topics and practical virtual lab applications.",
+                        skills: ["OT Security", "Firewall Management", "IAM", "Vulnerability Assessment", "Industrial Workflow", "Professional Documentation"]
+                      },
+                      {
+                        role: "CTF Player",
+                        company: "Hack The Box",
+                        period: "Jun 2025 – Aug 2025",
+                        type: "Practical Training",
+                        desc: "Solved real-world security scenarios covering network exploitation, privilege escalation, and web vulnerabilities. Strengthened skills in Linux/Windows enumeration and post-exploitation techniques.",
+                        skills: ["Penetration Testing", "Vulnerability Assessment", "SIEM", "IDS/IPS", "Ethical Hacking"]
+                      },
+                      {
+                        role: "HTB Advanced Learning Path",
+                        company: "Hack The Box",
+                        period: "May 2025 – Jul 2025",
+                        type: "Training",
+                        desc: "Completed advanced penetration testing labs. Gained hands-on experience in network exploitation, privilege escalation, and attack simulations to strengthen critical thinking and tool proficiency.",
+                        skills: ["CTI", "Advanced Penetration Testing", "Security Methodologies", "Attack Simulation"]
+                      },
+                      {
+                        role: "Jr. Penetration Tester Certificate",
+                        company: "TryHackMe",
+                        period: "Apr 2025 – Aug 2025",
+                        type: "Certification Path",
+                        desc: "Completed the Jr. Penetration Tester and Pre-Security learning paths. Practiced Cyber Kill Chain and OWASP Top 10 in simulated environments, building a foundation in Linux, Windows, and Cloud security.",
+                        skills: ["Jr. Pentesting", "Incident Response", "Network Scanning", "OWASP Top 10", "Linux/Windows Security"]
+                      }
+                    ].map((exp, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: i,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -3, boxShadow: "0 10px 30px rgba(236,72,153,0.08)" },
+                        className: "bg-white rounded-2xl p-6 border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300",
+                      }
+
+                        , React.createElement('div', { className: "flex gap-5", }
+                          , React.createElement('div', { className: "flex-shrink-0", }
+                            , React.createElement('div', { className: "w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center shadow-lg", }
+                              , React.createElement(_lucidereact.Briefcase, { className: "text-white", size: 20, })
+                            )
+                          )
+                          , React.createElement('div', { className: "flex-1 min-w-0", }
+                            , React.createElement('div', { className: "flex flex-wrap items-start justify-between gap-2", }
+                              , React.createElement('div', null
+                                , React.createElement('h3', { className: "font-black text-gray-800 text-base", }, exp.role)
+                                , React.createElement('p', { className: "text-pink-500 font-bold text-sm", }, exp.company)
+                              )
+                              , React.createElement('div', { className: "text-right", }
+                                , React.createElement('span', { className: "inline-block text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full font-bold", }, exp.period)
+                                , React.createElement('p', { className: "text-xs text-gray-400 mt-1 font-medium", }, exp.type)
+                              )
+                            )
+                            , React.createElement('p', { className: "text-gray-500 text-sm mt-3 leading-relaxed", }, exp.desc)
+
+                            /* Skills tags */
+                            , React.createElement('div', { className: "mt-4 flex flex-wrap gap-2", }
+                              , exp.skills.map(skill => (
+                                React.createElement('span', {
+                                  key: skill,
+                                  className: "text-[10px] px-2.5 py-1 bg-pink-50 text-pink-500 rounded-full font-bold border border-pink-100 uppercase tracking-tight",
+                                }, skill)
+                              ))
+                            )
+                          )
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── RECOMMENDATIONS ── */
+              , React.createElement('section', { id: "recommendations", className: "py-24 px-6 bg-pink-50/30", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.MessageSquare, title: "Recommendations", })
+                  , React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8", }
+                    , RECOMMENDATIONS.map((rec, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: i,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        className: "bg-white rounded-3xl p-8 border border-pink-100 shadow-sm hover:shadow-xl hover:border-pink-300 transition-all duration-500 relative flex flex-col h-full group",
+                      }
+                        /* Quote mark decoration */
+                        , React.createElement('div', { className: "absolute top-6 right-8 text-pink-100 group-hover:text-pink-200 transition-colors pointer-events-none", }
+                          , React.createElement(_lucidereact.Quote, { size: 60, fill: "currentColor", })
+                        )
+
+                        /* Header: Profile & Name */
+                        , React.createElement('div', { className: "flex items-center gap-5 mb-6 relative z-10", }
+                          , React.createElement('div', { className: "flex-shrink-0", }
+                            , React.createElement('div', {
+                              id: `rec-img-container-${i}`,
+                              className: "w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center shadow-lg border-2 border-white overflow-hidden",
+                            }
+                              , (function () {
+                                const imgs = (function () { try { return JSON.parse(localStorage.getItem('hasna_uploads_recommendations') || '[]') } catch (e) { return [] } })();
+                                if (imgs[i]) {
+                                  return React.createElement('img', { src: imgs[i], className: "w-full h-full object-cover", alt: rec.name });
+                                }
+                                return React.createElement(_lucidereact.User, { className: "text-white/80", size: 28 });
+                              })()
+                            )
+                          )
+                          , React.createElement('div', { className: "min-w-0", }
+                            , React.createElement('h3', { className: "font-black text-gray-800 text-base leading-tight", }, rec.name)
+                            , React.createElement('p', { className: "text-pink-500 font-bold text-[11px] mt-1 leading-tight", }, rec.role)
+                          )
+                        )
+
+                        /* Relationship badge */
+                        , React.createElement('div', { className: "mb-6 inline-flex items-center gap-2 bg-pink-50 text-pink-600 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider border border-pink-100 shadow-sm self-start", }
+                          , React.createElement(_lucidereact.Users, { size: 12, })
+                          , rec.relationship
+                        )
+
+                        /* Content */
+                        , React.createElement('div', { className: "flex-1 relative z-10", }
+                          , React.createElement('p', { className: "text-gray-600 text-[13px] leading-relaxed italic relative", }
+                            , rec.content
+                          )
+                        )
+
+                        /* Date Footer */
+                        , React.createElement('div', { className: "mt-6 pt-6 border-t border-pink-50 flex items-center justify-between", }
+                          , React.createElement('div', { className: "flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest", }
+                            , React.createElement(_lucidereact.Calendar, { size: 12, })
+                            , rec.date
+                          )
+                          , React.createElement('div', { className: "flex items-center gap-1.5", }
+                            , [1, 2, 3, 4, 5].map(star => React.createElement(_lucidereact.Star, {
+                              key: star,
+                              size: 10,
+                              fill: star <= 5 ? "#F472B6" : "none",
+                              className: star <= 5 ? "text-pink-400" : "text-gray-200",
+                            }))
+                          )
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── SKILLS ── */
+              , React.createElement('section', { id: "skills", className: "py-24 px-6 bg-gradient-to-br from-pink-500 via-rose-500 to-pink-600 relative overflow-hidden", }
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { scale: [1, 1.3, 1], opacity: [0.1, 0.25, 0.1] },
+                  transition: { duration: 8, repeat: Infinity },
+                  className: "absolute top-10 left-10 w-64 h-64 rounded-full bg-white/10 blur-3xl pointer-events-none",
+                }
+                )
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] },
+                  transition: { duration: 10, repeat: Infinity, delay: 3 },
+                  className: "absolute bottom-10 right-10 w-80 h-80 rounded-full bg-rose-200/10 blur-3xl pointer-events-none",
+                }
+                )
+                , React.createElement('div', { className: "max-w-6xl mx-auto relative z-10", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Code, title: "Skills & Expertise", light: true, })
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5", }
+                    , SKILLS.map((cat, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: cat.title,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -6, backgroundColor: "rgba(255,255,255,0.22)" },
+                        className: "bg-white/12 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transition-all duration-300",
+                      }
+
+                        , React.createElement('div', { className: "flex items-center gap-3 mb-5", }
+                          , React.createElement('div', { className: "w-10 h-10 rounded-xl bg-white/25 flex items-center justify-center", }
+                            , React.createElement(cat.Icon, { className: "text-white", size: 18, })
+                          )
+                          , React.createElement('h3', { className: "font-black text-white text-sm", }, cat.title)
+                        )
+                        , React.createElement('div', { className: "flex flex-wrap gap-2", }
+                          , cat.items.map((s) => (
+                            React.createElement(_framermotion.motion.span, {
+                              key: s,
+                              whileHover: { scale: 1.08 },
+                              className: "text-xs px-3 py-1.5 bg-white/20 text-white rounded-full font-semibold cursor-default hover:bg-white/30 transition-colors",
+                            }
+
+                              , s
+                            )
+                          ))
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── PROJECTS ── */
+              , React.createElement('section', { id: "projects", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.BookOpen, title: "Projects", })
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6", }
+                    , PROJECTS.map((proj, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: proj.id,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -8, boxShadow: "0 20px 40px rgba(236,72,153,0.15)" },
+                        className: "bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300 group flex flex-col",
+                      }
+                        , React.createElement('div', { className: "overflow-hidden cursor-pointer relative", }
+                          , React.createElement(_framermotion.motion.div, { whileHover: { scale: 1.03 }, transition: { duration: 0.3 }, }
+                            , React.createElement(ImgPlaceholder, { id: `project-img-${i}`, label: `${proj.title} Screenshot`, src: proj.image })
+                          )
+                          , React.createElement('div', { className: "absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black text-pink-600 shadow-sm border border-pink-100", }, proj.date)
+                        )
+                        , React.createElement('div', { className: "p-6 flex flex-col flex-grow", }
+                          , React.createElement('div', { className: "mb-3", }
+                            , React.createElement('h3', { className: "font-black text-gray-800 text-lg leading-tight mb-1", }, proj.title)
+                            , React.createElement('p', { className: "text-pink-500 text-[10px] font-bold uppercase tracking-widest", }, proj.association)
+                          )
+                          , React.createElement('p', { className: "text-gray-600 text-xs leading-relaxed mb-5", }, proj.description)
+
+                          , React.createElement('div', { className: "space-y-4 mb-6", }
+                            , proj.technologies.hardware && React.createElement('div', null
+                              , React.createElement('p', { className: "text-gray-400 text-[9px] font-black uppercase tracking-widest mb-2", }, "Hardware")
+                              , React.createElement('div', { className: "flex flex-wrap gap-1.5", }
+                                , proj.technologies.hardware.map(t => React.createElement('span', { key: t, className: "text-[10px] px-2 py-0.5 bg-gray-50 text-gray-600 rounded-md font-bold border border-gray-100", }, t))
+                              )
+                            )
+                            , proj.technologies.software && React.createElement('div', null
+                              , React.createElement('p', { className: "text-gray-400 text-[9px] font-black uppercase tracking-widest mb-2", }, "Software Stack")
+                              , React.createElement('div', { className: "flex flex-wrap gap-1.5", }
+                                , proj.technologies.software.map(t => React.createElement('span', { key: t, className: "text-[10px] px-2 py-0.5 bg-pink-50 text-pink-600 rounded-md font-bold border border-pink-100", }, t))
+                              )
+                            )
+                          )
+
+                          , React.createElement('div', { className: "mt-auto pt-5 border-t border-gray-50 flex flex-wrap gap-1.5", }
+                            , proj.skills.map(s => React.createElement('span', { key: s, className: "text-[9px] px-2 py-1 bg-gradient-to-r from-pink-50 to-rose-50 text-pink-600 rounded-lg font-black uppercase tracking-tighter", }, s))
+                          )
+                        )
+                      )
+                    ))
+                    /* Fill with placeholders if less than 3 */
+                    , PROJECTS.length < 3 && Array.from({ length: 3 - PROJECTS.length }).map((_, i) => (
+                      React.createElement('div', { key: `empty-${i}`, className: "bg-gray-50/50 rounded-3xl border border-dashed border-gray-200 h-[400px] flex items-center justify-center text-center p-8", }
+                        , React.createElement('div', null
+                          , React.createElement(_lucidereact.PlusCircle, { className: "mx-auto mb-3 text-gray-300", size: 32, })
+                          , React.createElement('p', { className: "text-gray-400 font-bold text-sm", }, "Future Project Space")
+                          , React.createElement('p', { className: "text-gray-300 text-xs mt-1", }, "Incoming cybersecurity innovations")
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── CERTIFICATIONS ── */
+              , React.createElement('section', { id: "certifications", className: "py-24 px-6 bg-gray-50", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.ShieldCheck, title: t.nav.certifications, })
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-8", }
+                    , CERTIFICATIONS.map((cert, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: cert.title,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -8, boxShadow: "0 20px 40px rgba(236,72,153,0.12)" },
+                        className: "bg-white rounded-3xl overflow-hidden border border-pink-100/50 shadow-sm hover:border-pink-300 transition-all duration-300 flex flex-col group h-full",
+                      }
+                        , React.createElement('div', { className: "relative", }
+                          , React.createElement(ImgPlaceholder, { id: cert.id || `cert-img-${i}`, label: cert.title, aspect: "aspect-[4/3]", src: cert.image })
+                          , React.createElement('div', { className: "absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black text-pink-600 shadow-sm border border-pink-100", }
+                            , cert.date
+                          )
+                        )
+                        , React.createElement('div', { className: "p-6 flex flex-col flex-grow", }
+                          , React.createElement('div', { className: "flex items-start justify-between mb-4", }
+                            , React.createElement('div', { className: "flex-grow", }
+                              , React.createElement('h3', { className: "font-black text-gray-800 text-base leading-tight mb-1", }, cert.title)
+                              , React.createElement('p', { className: "text-pink-500 text-[11px] font-bold uppercase tracking-widest", }, cert.organization)
+                            )
+                            , React.createElement('div', { className: "w-10 h-10 rounded-xl bg-pink-50 flex items-center justify-center text-pink-500 flex-shrink-0", }
+                              , React.createElement(_lucidereact[cert.icon] || _lucidereact.Award, { size: 20, })
+                            )
+                          )
+                          , React.createElement('p', { className: "text-gray-600 text-[12px] leading-relaxed", }, cert.desc)
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── PROFESSIONAL DEVELOPMENT ── */
+              , React.createElement('section', { id: "professional-development", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Briefcase, title: t.nav.professional_development, })
+                  , React.createElement('div', { className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", }
+                    , SABIC_COURSES.map((course, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: course,
+                        initial: { opacity: 0, scale: 0.95 },
+                        whileInView: { opacity: 1, scale: 1 },
+                        viewport: { once: true },
+                        transition: { duration: 0.3, delay: (i % 8) * 0.05 },
+                        className: "bg-gray-50/50 rounded-2xl p-4 border border-gray-100 flex items-center gap-4 hover:border-pink-200 transition-colors group",
+                      }
+                        , React.createElement('div', { className: "w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-gray-100 bg-white group-hover:scale-105 transition-transform", }
+                          , React.createElement('img', { src: "1757149348501.jpg", className: "w-full h-full object-cover", alt: "SABIC" })
+                        )
+                        , React.createElement('div', null
+                          , React.createElement('p', { className: "text-gray-800 text-[11px] font-bold leading-tight", }, course)
+                          , React.createElement('p', { className: "text-pink-500 text-[9px] font-black uppercase tracking-tighter", }, "SABIC Professional")
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── HONORS & AWARDS ── */
+              , React.createElement('section', { id: "awards", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Trophy, title: t.nav.awards, })
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-8", }
+                    , AWARDS.map((award, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: award.title,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.15 },
+                        whileHover: { y: -8, boxShadow: "0 20px 40px rgba(236,72,153,0.12)" },
+                        className: "bg-gradient-to-br from-pink-50/30 to-white rounded-3xl overflow-hidden border border-pink-100/50 shadow-sm hover:border-pink-300 transition-all duration-300 flex flex-col h-full group",
+                      }
+                        , React.createElement('div', { className: "relative", }
+                          , React.createElement(ImgPlaceholder, { id: award.id || `award-img-${i}`, label: award.title, aspect: "aspect-[4/3]", src: award.image })
+                          , React.createElement('div', { className: "absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black text-pink-600 shadow-sm border border-pink-100", }
+                            , award.date
+                          )
+                        )
+                        , React.createElement('div', { className: "p-6 flex flex-col flex-grow", }
+                          , React.createElement('div', { className: "flex items-start justify-between mb-4", }
+                            , React.createElement('div', { className: "flex-grow", }
+                              , React.createElement('h3', { className: "font-black text-gray-800 text-base leading-tight mb-1", }, award.title)
+                              , React.createElement('p', { className: "text-pink-500 text-[11px] font-bold uppercase tracking-widest", }, award.organization)
+                            )
+                            , React.createElement('div', { className: "w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center text-pink-500 flex-shrink-0 shadow-sm", }
+                              , React.createElement(_lucidereact[award.icon] || _lucidereact.Award, { size: 20, })
+                            )
+                          )
+                          , React.createElement('p', { className: "text-gray-600 text-[12px] leading-relaxed", }, award.desc)
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── VOLUNTEER ── */
+              , React.createElement('section', { id: "volunteer", className: "py-24 px-6 bg-pink-50", }
+                , React.createElement('div', { className: "max-w-6xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Heart, title: "Volunteer", })
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6", }
+                    , VOLUNTEERING.map((vol, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: vol.id,
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -8, boxShadow: "0 20px 40px rgba(236,72,153,0.12)" },
+                        className: "bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300 flex flex-col h-full",
+                      }
+                        , React.createElement('div', { className: "overflow-hidden cursor-pointer relative", }
+                          , React.createElement(_framermotion.motion.div, { whileHover: { scale: 1.03 }, transition: { duration: 0.3 }, }
+                            , React.createElement(ImgPlaceholder, { id: `vol-img-${i}`, label: vol.title, src: vol.image })
+                          )
+                          , React.createElement('span', { className: "absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[9px] font-black text-pink-600 shadow-sm border border-pink-100", }, vol.period)
+                        )
+                        , React.createElement('div', { className: "p-5 flex flex-col flex-grow", }
+                          , React.createElement('div', { className: "flex items-start justify-between gap-2 mb-3", }
+                            , React.createElement('div', null
+                              , React.createElement('h3', { className: "font-black text-gray-800 text-sm leading-tight", }, vol.title)
+                              , React.createElement('p', { className: "text-pink-500 text-[10px] font-bold uppercase tracking-widest mt-1", }, vol.organization)
+                            )
+                            , React.createElement(_lucidereact.Heart, { className: "text-pink-400 flex-shrink-0", size: 14, })
+                          )
+                          , React.createElement('div', { className: "mb-4", }
+                            , React.createElement('span', { className: "inline-block text-[10px] px-2 py-0.5 bg-pink-50 text-pink-600 rounded-md font-bold border border-pink-100", }, vol.category)
+                          )
+                          , React.createElement('p', { className: "text-gray-500 text-xs leading-relaxed flex-grow", }, vol.description)
+                          , React.createElement('div', { className: "mt-5 pt-4 border-t border-gray-50", }
+                            , React.createElement('p', { className: "text-[10px] font-black text-gray-400 uppercase tracking-widest", }, "Role")
+                            , React.createElement('p', { className: "text-xs font-bold text-gray-700 mt-1", }, vol.role)
+                          )
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── LANGUAGES ── */
+              , React.createElement('section', { id: "languages", className: "py-24 px-6 bg-white", }
+                , React.createElement('div', { className: "max-w-2xl mx-auto", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Globe, title: t.nav.languages, })
+                  , React.createElement('div', { className: "space-y-4", }
+                    , [
+                      { lang: lang === 'en' ? "Arabic" : "العربية", flag: "🇸🇦", level: lang === 'en' ? "Native" : "اللغة الأم", pct: 100 },
+                      { lang: lang === 'en' ? "English" : "الإنجليزية", flag: "🇬🇧", level: lang === 'en' ? "Fluent" : "طلاقة", pct: 95 },
+                      { lang: lang === 'en' ? "Korean" : "الكورية", flag: "🇰🇷", level: lang === 'en' ? "Advanced" : "متقدم", pct: 75 },
+                    ].map((item, i) => (
+                      React.createElement(_framermotion.motion.div, {
+                        key: item.lang,
+                        initial: { opacity: 0, x: -30 },
+                        whileInView: { opacity: 1, x: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        className: "bg-gradient-to-br from-pink-50 to-white rounded-2xl p-5 border border-pink-100 shadow-sm hover:border-pink-300 hover:shadow-md transition-all duration-300",
+                      }
+
+                        , React.createElement('div', { className: "flex items-center justify-between mb-3", }
+                          , React.createElement('div', { className: "flex items-center gap-2", }
+                            , React.createElement('span', { className: "text-2xl", }, item.flag)
+                            , React.createElement('span', { className: "font-black text-gray-800", }, item.lang)
+                          )
+                          , React.createElement('span', { className: "text-xs font-black bg-pink-100 text-pink-600 px-3 py-1 rounded-full", }, item.level)
+                        )
+                        , React.createElement('div', { className: "w-full bg-pink-100 rounded-full h-2.5 overflow-hidden", }
+                          , React.createElement(_framermotion.motion.div, {
+                            initial: { width: 0 },
+                            whileInView: { width: `${item.pct}%` },
+                            viewport: { once: true },
+                            transition: { duration: 1.3, ease: "easeOut", delay: i * 0.1 + 0.3 },
+                            className: "h-full bg-gradient-to-r from-pink-400 to-rose-500 rounded-full",
+                          }
+                          )
+                        )
+                      )
+                    ))
+                  )
+                )
+              )
+
+              /* ── CONTACT ── */
+              , React.createElement('section', { id: "contact", className: "py-24 px-6 bg-gradient-to-br from-pink-500 via-rose-500 to-pink-600 relative overflow-hidden", }
+                , React.createElement(_framermotion.motion.div, {
+                  animate: { scale: [1, 1.2, 1] },
+                  transition: { duration: 8, repeat: Infinity },
+                  className: "absolute inset-0 flex items-center justify-center pointer-events-none",
+                }
+
+                  , React.createElement('div', { className: "w-96 h-96 rounded-full bg-white/5 blur-3xl", })
+                )
+
+                , React.createElement('div', { className: "max-w-4xl mx-auto relative z-10", }
+                  , React.createElement(SectionHeading, { Icon: _lucidereact.Mail, title: t.contact.title, light: true, })
+
+                  , React.createElement(_framermotion.motion.p, {
+                    initial: { opacity: 0, y: 20 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    className: "text-center text-white/80 text-sm mb-10 -mt-6",
+                  }
+                    , t.contact.subtitle
+
+                  )
+
+                  , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12", }
+                    , [
+                      { Icon: _lucidereact.Phone, label: t.contact.phone, value: "+966 53 683 0944", href: "tel:+966536830944", emoji: "📞" },
+                      { Icon: _lucidereact.Linkedin, label: t.contact.linkedin, value: "hasna-al-shammari", href: "https://www.linkedin.com/in/hasna-al-shammari-771730334", emoji: "💼" },
+                      { Icon: _lucidereact.Github, label: t.contact.github, value: "xzerite", href: "https://github.com/xzerite", emoji: "💻" },
+                      { Icon: _lucidereact.Mail, label: t.contact.email, value: "hasna2001roses@gmail.com", href: "mailto:hasna2001roses@gmail.com", emoji: "✉️" },
+                    ].map(({ Icon: I, label, value, href, emoji }, i) => (
+                      React.createElement(_framermotion.motion.a, {
+                        key: label,
+                        href: href,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        initial: { opacity: 0, y: 30 },
+                        whileInView: { opacity: 1, y: 0 },
+                        viewport: { once: true },
+                        transition: { duration: 0.5, delay: i * 0.1 },
+                        whileHover: { y: -8, scale: 1.03, backgroundColor: "rgba(255,255,255,0.28)" },
+                        className: "bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-6 text-center text-white transition-all duration-300 cursor-pointer",
+                      }
+
+                        , React.createElement('div', { className: "text-3xl mb-3", }, emoji)
+                        , React.createElement('div', { className: "w-10 h-10 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-3", }
+                          , React.createElement(I, { size: 18, })
+                        )
+                        , React.createElement('p', { className: "text-white/70 text-xs font-black uppercase tracking-widest mb-1", }, label)
+                        , React.createElement('p', { className: "text-sm font-bold break-all", }, value)
+                      )
+                    ))
+                  )
+
+                  , React.createElement(_framermotion.motion.div, {
+                    initial: { opacity: 0, y: 20 },
+                    whileInView: { opacity: 1, y: 0 },
+                    viewport: { once: true },
+                    transition: { delay: 0.4 },
+                    className: "text-center",
+                  }
+
+                    , React.createElement('div', { className: "inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-6", }
+                      , React.createElement('span', { className: "text-white/70 text-xs font-bold uppercase tracking-widest", }, t.contact.status)
+                      , React.createElement(_framermotion.motion.span, {
+                        animate: { scale: [1, 1.3, 1] },
+                        transition: { duration: 1.5, repeat: Infinity },
+                        className: "w-2 h-2 bg-green-400 rounded-full",
+                      }
+                      )
+                    )
+                    , React.createElement('p', { className: "text-white/40 text-xs", }, "© 2025 "
+                      , React.createElement('span', { className: "text-white/70 font-bold", }, "HASNA"), " · Cybersecurity Portfolio · Built with 💖"
+                    )
+                  )
+                )
+              )
+            ) // end motion.main
+          ) // end AnimatePresence
+        ) // end outer div
+      );
+    } exports.default = HasnaPortfolio;
+  </script>
+</head>
+
+<body>
+
+
+  <div id="preview-app"></div>
+
+</body>
+
+</html>
