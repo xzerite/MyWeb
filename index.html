@@ -91,7 +91,37 @@
 
     const PROJECTS = [
       {
+        id: 0,
+        title: "Neonatal Cyber-resilient Brain Hemorrhage Evaluation System",
+        date: "Graduation Project 2026",
+        association: "Gulf Colleges",
+        description: "A powerful intersection of AI and Cybersecurity designed for neonatal healthcare. This system uses deep learning (CNN) to detect and classify Germinal Matrix Hemorrhage (GMH) from ultrasound images. It features Explainable AI (Grad-CAM) for visual insights and an integrated Zero-Day attack detection system to ensure diagnostic resilience and data security.",
+        technologies: {
+          hardware: ["Medical Ultrasound Equipment (Data Source)", "Secure Diagnostic Workstation"],
+          software: ["Python", "CNN Models", "Grad-CAM (XAI)", "Zero-Day Detection Engine", "TensorFlow", "Cyber-Resilience Monitoring"]
+        },
+        skills: ["Medical AI", "Cybersecurity", "Deep Learning", "CNN", "Explainable AI (XAI)", "System Integrity"],
+        supervisor: "Gulf Colleges",
+        image: "neonatal_main.jpeg",
+        images: ["neonatal_main.jpeg", "neonatal_ss1.png", "neonatal_ss2.png", "neonatal_ss3.png"]
+      },
+      {
         id: 1,
+        title: "Smart Assistive Glasses for the Visually Impaired",
+        date: "May 2026",
+        association: "Gulf Colleges",
+        description: "Wearable assistive technology embedded into a glasses frame to help visually impaired individuals detect nearby obstacles in real-time. The system features an ESP32-CAM for live video streaming and an HC-SR04 ultrasonic sensor for distance measurement with buzzer alerts. I developed an interactive multi-camera dashboard that connects to the ESP32-CAM, Laptop Cam, and Iriun Cam, integrating advanced AI models for Object Detection, Color Recognition, Traffic Sign Detection, and Age & Gender Analysis, all controllable via a custom wireless remote.",
+        technologies: {
+          hardware: ["ESP32-CAM", "ESP32 (Remote Control)", "HC-SR04 Ultrasonic Sensor", "Buzzer", "Arduino Board", "Push Buttons", "LEDs & Resistors", "Breadboard", "Portable Battery", "Jumper Cables", "Glasses Frame Mount"],
+          software: ["Python", "OpenCV", "TensorFlow / AI Models", "Arduino IDE (C++)", "ESP32 Camera Library", "Multi-Camera Dashboard", "Wireless Communication"]
+        },
+        skills: ["Artificial Intelligence", "Computer Vision", "Deep Learning", "Embedded Systems", "Hardware Integration", "IoT Development"],
+        supervisor: "Gulf Colleges",
+        image: "glasses_main.jpeg",
+        images: ["glasses_main.jpeg", "glasses_side1.jpeg", "glasses_side2.jpeg"]
+      },
+      {
+        id: 2,
         title: "Radar-Based Object Detection System",
         date: "Jan 2026",
         association: "Gulf Colleges",
@@ -105,7 +135,7 @@
         image: "1767814168981.jpg"
       },
       {
-        id: 2,
+        id: 3,
         title: "Student Registration Website – CyberGuard Club",
         date: "Jan 2026",
         association: "Cyber Guard Club",
@@ -118,7 +148,7 @@
         image: "1767456995415.jpg"
       },
       {
-        id: 3,
+        id: 4,
         title: "NEXUS CTF Platform",
         date: "Jan 2026",
         association: "Gulf Colleges",
@@ -130,7 +160,7 @@
         image: "Screenshot 2026-01-04 105711.png"
       },
       {
-        id: 4,
+        id: 5,
         title: "Intrusion Detection (IDPS) Lab",
         date: "Jan 2026",
         association: "Gulf Colleges",
@@ -142,7 +172,7 @@
         image: "1771883134548-71ae41a4-74bc-44e0-9e6d-bea76b3606bb.jpg"
       },
       {
-        id: 5,
+        id: 6,
         title: "Home Budget Tracker App",
         date: "Jan 2026",
         description: "Cross-platform mobile app for financial management with interactive pie charts and real-time budget monitoring.",
@@ -153,7 +183,7 @@
         image: "1767736981658.jpg"
       },
       {
-        id: 6,
+        id: 7,
         title: "Password Security Dashboard",
         date: "Feb 2026",
         association: "Gulf Colleges",
@@ -165,7 +195,7 @@
         image: "1770475596812.jpg"
       },
       {
-        id: 7,
+        id: 8,
         title: "Multimedia Web Application",
         date: "Feb 2026",
         association: "Gulf Colleges",
@@ -177,7 +207,7 @@
         image: "Screenshot 2026-02-06 220016.png"
       },
       {
-        id: 8,
+        id: 9,
         title: "NeuroPlay AI Gaming System",
         date: "Sep - Nov 2025",
         association: "Gulf Colleges",
@@ -189,7 +219,7 @@
         image: "1763109988905.jpg"
       },
       {
-        id: 9,
+        id: 10,
         title: "Interactive Cybersecurity Game",
         date: "Nov 2025",
         association: "Gulf Colleges",
@@ -201,7 +231,7 @@
         image: "1763723446848.jpg"
       },
       {
-        id: 10,
+        id: 11,
         title: "VisionPlus – AI Smart Glasses",
         date: "Nov 2025",
         association: "Gulf Colleges",
@@ -1629,7 +1659,6 @@
                         whileHover: { y: -6, backgroundColor: "rgba(255,255,255,0.22)" },
                         className: "bg-white/12 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transition-all duration-300",
                       }
-
                         , React.createElement('div', { className: "flex items-center gap-3 mb-5", }
                           , React.createElement('div', { className: "w-10 h-10 rounded-xl bg-white/25 flex items-center justify-center", }
                             , React.createElement(cat.Icon, { className: "text-white", size: 18, })
@@ -1643,7 +1672,6 @@
                               whileHover: { scale: 1.08 },
                               className: "text-xs px-3 py-1.5 bg-white/20 text-white rounded-full font-semibold cursor-default hover:bg-white/30 transition-colors",
                             }
-
                               , s
                             )
                           ))
@@ -1659,8 +1687,10 @@
                 , React.createElement('div', { className: "max-w-6xl mx-auto", }
                   , React.createElement(SectionHeading, { Icon: _lucidereact.BookOpen, title: "Projects", })
                   , React.createElement('div', { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6", }
-                    , PROJECTS.map((proj, i) => (
-                      React.createElement(_framermotion.motion.div, {
+                    , PROJECTS.map((proj, i) => {
+                      const [activeImg, setActiveImg] = _react.useState.call(void 0, 0);
+                      const imgs = proj.images || [proj.image];
+                      return React.createElement(_framermotion.motion.div, {
                         key: proj.id,
                         initial: { opacity: 0, y: 30 },
                         whileInView: { opacity: 1, y: 0 },
@@ -1669,11 +1699,35 @@
                         whileHover: { y: -8, boxShadow: "0 20px 40px rgba(236,72,153,0.15)" },
                         className: "bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-sm hover:border-pink-300 transition-all duration-300 group flex flex-col",
                       }
+                        /* Main image area */
                         , React.createElement('div', { className: "overflow-hidden cursor-pointer relative", }
                           , React.createElement(_framermotion.motion.div, { whileHover: { scale: 1.03 }, transition: { duration: 0.3 }, }
-                            , React.createElement(ImgPlaceholder, { id: `project-img-${i}`, label: `${proj.title} Screenshot`, src: proj.image })
+                            , React.createElement(ImgPlaceholder, { id: `project-img-${i}`, label: `${proj.title} Screenshot`, src: imgs[activeImg] })
                           )
                           , React.createElement('div', { className: "absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black text-pink-600 shadow-sm border border-pink-100", }, proj.date)
+                          /* Photo count badge */
+                          , imgs.length > 1 && React.createElement('div', { className: "absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[9px] font-black px-2 py-1 rounded-full flex items-center gap-1", }
+                            , React.createElement(_lucidereact.Camera, { size: 10 })
+                            , `${activeImg + 1} / ${imgs.length}`
+                          )
+                        )
+                        /* Thumbnail strip — only shown for multi-image projects */
+                        , imgs.length > 1 && React.createElement('div', { className: "flex gap-2 px-4 pt-3 pb-0", }
+                          , imgs.map((src, ti) =>
+                            React.createElement(_framermotion.motion.button, {
+                              key: ti,
+                              onClick: () => setActiveImg(ti),
+                              whileHover: { scale: 1.05 },
+                              whileTap: { scale: 0.95 },
+                              className: `flex-1 h-14 rounded-xl overflow-hidden border-2 transition-all duration-200 ${
+                                ti === activeImg
+                                  ? 'border-pink-500 shadow-md shadow-pink-200'
+                                  : 'border-transparent opacity-60 hover:opacity-90'
+                              }`,
+                            }
+                              , React.createElement('img', { src: src, className: "w-full h-full object-cover", alt: `Photo ${ti + 1}` })
+                            )
+                          )
                         )
                         , React.createElement('div', { className: "p-6 flex flex-col flex-grow", }
                           , React.createElement('div', { className: "mb-3", }
@@ -1701,8 +1755,8 @@
                             , proj.skills.map(s => React.createElement('span', { key: s, className: "text-[9px] px-2 py-1 bg-gradient-to-r from-pink-50 to-rose-50 text-pink-600 rounded-lg font-black uppercase tracking-tighter", }, s))
                           )
                         )
-                      )
-                    ))
+                      );
+                    })
                     /* Fill with placeholders if less than 3 */
                     , PROJECTS.length < 3 && Array.from({ length: 3 - PROJECTS.length }).map((_, i) => (
                       React.createElement('div', { key: `empty-${i}`, className: "bg-gray-50/50 rounded-3xl border border-dashed border-gray-200 h-[400px] flex items-center justify-center text-center p-8", }
